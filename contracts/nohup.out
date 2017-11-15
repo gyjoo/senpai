@@ -1,0 +1,23 @@
+
+> pet-shop@1.0.0 dev /home/ubuntu/senpai
+> lite-server
+
+** browser-sync config **
+{ injectChanges: false,
+  files: [ './**/*.{html,htm,css,js}' ],
+  watchOptions: { ignored: 'node_modules' },
+  server: 
+   { baseDir: [ './src', './build/contracts' ],
+     middleware: [ [Function], [Function] ] } }
+[Browsersync] Access URLs:
+ -------------------------------------
+       Local: http://localhost:3000
+    External: http://172.31.6.190:3000
+ -------------------------------------
+          UI: http://localhost:3001
+ UI External: http://172.31.6.190:3001
+ -------------------------------------
+[Browsersync] Serving files from: ./src
+[Browsersync] Serving files from: ./build/contracts
+[Browsersync] Watching files...
+[Browsersync] Couldn't open browser (if you are using BrowserSync in a headless environment, you might want to set the open option to false)
