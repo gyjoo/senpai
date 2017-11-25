@@ -1,5 +1,129 @@
-extends layout
+doctype html
+html.
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/naver/naver_d2.css" />
+  <link rel="stylesheet" type="text/css" href="stylesheets/naver/xeicon.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <title>Senpai's practice homepage</title>
+    <!-- XEIcon 1.0.2 import -->
+    <link rel="stylesheet" href="/public/stylesheets/naver/xeicon.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/stylesheets/naver/naver_d2.css">
+</head>
+<body>
+<div id="wrap" class="main">
+	    <div>
+	        <div id = "header">
+	            <div class = "main_lnb">
+	                <div class = "header_sec" style = "background: #474B56">
+	                    <div class = "inner_sec">
+	                        <div id = "lnb" class = "lnb">
+	                            <h1>
+	                            	<a href = "/index" target = "_self" class = "lnb_top_logo">
+	                            		<span class = "blind"> naver D2 </span>
+	                            	</a>
+	                            </h1>
 
-block content
-  h1= title
-  p Welcome to #{title}
+	                            <div class="menu_sec">
+	                                <div class="btn_lnb_menu">
+	                                	<a href="#">
+	                                		<span class="blind">메뉴</span>
+	                                	</a>
+	                                </div>
+
+	                                <ul>
+	                                    <li><a href="#">Menubar 1</a></li>
+	                                    <li><a href="#">Menubar 2</a></li>
+	                                    <li><a href="#">Menubar 3</a></li>
+	                                </ul>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="bg_img_sec" data-reactid=".0.0.1">
+					<div class="img_area" style="background: #000000;" data-reactid=".0.0.1.0">
+						<div class="img_sec" data-reactid=".0.0.1.0.0">
+							<p class="big_title" data-reactid=".0.0.1.0.0.0">
+								<a href="" target="_blank" data-reactid=".0.0.1.0.0.0.0"></a>
+							</p>
+							<div class="slogan">
+								<h1>
+									"Senpai, Kimozzi."
+								</h1>
+							</div>
+
+		                    <div class="m_search_sec">
+		                        <div class="btn_lnb_search">
+		                        	<a href="#">
+		                        		<span class="blind">검색</span>
+		                        	</a>
+		                        </div>
+		                        <input type="text" placeholder="항목 검색">
+		                    </div>
+
+		                    <div class="pc_search_input">
+		                        <fieldset>
+		                            <legend>검색</legend>
+		                            <input type="text" placeholder="Source 검색하기" name="" class="search_area">
+		                            <!-- <input type="submit" value="" class="btn_search"> -->
+		                        </fieldset>
+		                    </div>
+	                	</div>
+	              	</div>
+	            </div>
+	        </div>
+
+	        <div id="container">
+	            <div class="con_area">
+	                <div class="contents">
+	                  <div class="post_article">
+	                     <div class="cont_post">
+	                        <h2><a href="/helloworld/8670646">[TECH@NAVER] "디자이너가 묻고 개발자가 답하는 웹 이야기" 출간</a></h2>
+	                        <div class="cont_img"><a href="/helloworld/8670646"><img src="/content/images/2017/11/tech-at-naver-015_small.png" width="100%" height="100%" alt=""></a></div>
+	                        <a href="/helloworld/8670646" class="post_txt_wrap">
+	                           <div class="post_txt">네이버 기술 서적 시리즈 TECH@NAVER의 열다섯 번째 책인 "디자이너가 묻고 개발자가 답하는 웹 이야기"가 무료 전자책으로 출간됐습니다. "디자이너가 묻고 개발자가 답하는 웹 이야기"는 웹 디자이너가 웹 </div>
+	                        </a>
+	                        <dl>
+	                           <dt><i class="xe-time-o"><span class="blind">등록일</span></i></dt>
+	                           <dd>2017.11.15</dd>
+	                           <dt><span class="blind">|</span></dt>
+	                           <dd><span class="line_bar">|</span></dd>
+	                           <dt><i class="xe-eye"><span class="blind">코멘트</span></i></dt>
+	                           <dd>1169</dd>
+	                        </dl>
+	                     </div>
+	                  </div>
+	                </div>
+	            </div>
+	        </div>
+
+	        <div id="footer">
+	            <div class="inner_sec">
+	                <div class="footer_sec">
+	                    <div class="sns_share">
+	                        <ul>
+	                            <li><a href="http://naver.github.io" class="github" target="_blank"><i class="xe-github"></i></a></li>
+	                            <li><a href="http://facebook.com/naverd2" class="facebook" target="_blank"><i class="xe-facebook"></i></a></li>
+	                            <li><a href="https://twitter.com/naver_d2" class="twitter" target="_blank"><i class="xe-twitter"></i></a></li>
+	                            <li><a href="/d2.atom" class="rss" target="_blank"><i class="xe-social-rssfeed"></i></a></li>
+	                        </ul>
+	                    </div>
+	                    <p class="copyright"><a href="http://www.naver.com" target="_blank" class="naver_logo"><img src="/static/img/app/bottom_naver_logo.jpg" width="63" height="11" alt="naver"></a><span>Copyright</span> © <a href="http://www.navercorp.com/" target="_blank"><strong>NAVER Corp.</strong></a> <span>All Rights Reserved.</span></p>
+	                    <div class="footer_logo">
+	                        <div class="footer_logo_img"><img src="/static/img/app/footer_d2_logo.png" alt="naver d2"></div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+</div>
+<script src="/static/vendor/core.js/client/core.js"></script>
+<script src="/static/js/d2-front-0.0.1.vendor.min.js"></script>
+<script src="/static/js/d2-front-0.0.1.min.js"></script>
+</body>
+</html>
+
+</body>

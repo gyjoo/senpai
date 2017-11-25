@@ -83,6 +83,17 @@ html,body{height:100%}
 .bg_img_sec .img_three_area .three_img_sec .three_item .item_sec{max-width:350px}
 .bg_img_sec .img_three_area .three_img_sec .three_item .item_sec .item_sec_txt{font-size:16px;margin:30px 20px;max-height:40px;overflow:hidden}
 
+/* 추가된 부분 by Jae-hyuk */
+.bg_img_sec .img_area .img_sec .slogan{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#000000}
+.bg_img_sec .pc_search_input input.search_area::-webkit-input-placeholder{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#a0a0a0}
+.bg_img_sec .pc_search_input input.search_area:-ms-input-placeholder{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#a0a0a0}
+.bg_img_sec .pc_search_input{position:absolute;top:50%;left:50%;transform: translate(-50%, -50%);}
+.bg_img_sec .pc_search_input input{border:1px solid #d3d3d3;border-radius:3px;padding:0 10px;width:700px;height:34px;_line_height:20px;color:#6e6e70;-webkit-appearance:none;vertical-align:middle;transition:all 0.3s ease}
+.bg_img_sec .pc_search_input input.search_area:focus,.bg_img_sec .pc_search_input input.search_area:hover{border:1px solid #a0a0a0;color:#6e6e70}
+.bg_img_sec .pc_search_input .btn_search{width:43px;height:34px;border:0;border-left:1px solid #E7E7E7;border-radius:0;margin-left:16px;cursor:pointer;font-family:xeicon;background:#fff;color:#a5a5a5;font-size:21px;letter-spacing:-2px;transition:all 0.3s ease}
+.bg_img_sec .pc_search_input input.btn_search:hover{color:#555}
+.bg_img_sec .m_search_sec input{display:none}
+
 /* news & hello world 페이지 spot영역 */
 .bg_news_sec,
 .bg_hworld_sec,
@@ -401,6 +412,10 @@ html,body{height:100%}
 .con_area .contents .paginate_box .paginate .btn_next{background:url(../img/app/spr_paging.png) -90px 0px no-repeat;background-size:120px 90px}
 .con_area .contents .paginate_box .paginate .btn_num.select{background:url(../img/app/spr_paging.png) 0px -60px no-repeat;background-size:120px 90px;color:#fff}
 
+/* 추가된 부분 by JH */
+.con_area .contents.detail_view .cmt_sec .cmt_wrt input[type="submit"]:disabled{color:#d3d3d3}
+.con_area .contents.detail_view .cmt_sec .cmt_lst .cmt_dept .re_cmt_input input[type="submit"]:disabled{color:#d3d3d3}
+
 /* pc hover 분기처리 */
 .pc .con_area .contents .paginate_box .paginate a:hover{background:url(../img/app/spr_paging.png) 0px -60px no-repeat;background-size:120px 90px;color:#fff}
 .pc .con_area .contents .paginate_box .paginate .btn_pre:hover{background:url(../img/app/spr_paging.png) -45px -60px no-repeat;background-size:120px 90px}
@@ -474,6 +489,9 @@ li[id^='fn']{padding-top:75px;margin-top:-75px;font-family:Helvetica,sans-serif}
 	.bg_img_sec .img_three_area .three_img_sec .three_item{margin:0 40px}
 	.bg_img_sec .img_three_area .three_img_sec .three_item .item_sec{max-width:200px}
 	.bg_img_sec .img_three_area .three_img_sec .three_item li img{width:200px;height:109px}
+
+	/* 추가된 부분 by JH */
+	.bg_img_sec .pc_search_input input{width:120px}
 }
 
 /* mobile */
@@ -511,6 +529,17 @@ li[id^='fn']{padding-top:75px;margin-top:-75px;font-family:Helvetica,sans-serif}
 	.main_lnb .header_sec .inner_sec .m_search_sec.on .btn_lnb_search a{display:block;height:100%}
 	.main_lnb .header_sec .inner_sec .m_search_sec.on{padding:7px 37px 7px 15px;border-top:1px solid #d6d6d6}
 	.main_lnb .header_sec .inner_sec .m_search_sec.on input{display:block;width:100%;border:1px solid #d3d3d3;border-radius:3px;padding:9px 10px;font-size:14px;-webkit-appearance:none}
+
+	/* 추가된 내용 by JH */
+	.bg_img_sec .pc_search_input{display:none}
+	.bg_img_sec .m_search_sec{background:#f7f7f7}
+	.bg_img_sec .m_search_sec .btn_lnb_search{position:absolute;top:14px;right:15px;width:20px;height:20px;background:url(../img/app/spr_btn_search.png) no-repeat;background-size:20px 20px;z-index:10}
+	.bg_img_sec .m_search_sec.on .btn_lnb_search{background:url(../img/app/spr_btn_search2.png) no-repeat;background-size:20px 20px;z-index:10}
+	.bg_img_sec .m_search_sec input{display:none}
+	.bg_img_sec .m_search_sec .btn_lnb_search a{display:block;height:100%}
+	.bg_img_sec .m_search_sec.on .btn_lnb_search a{display:block;height:100%}
+	.bg_img_sec .m_search_sec.on{padding:7px 37px 7px 15px;border-top:1px solid #d6d6d6}
+	.bg_img_sec .m_search_sec.on input{display:block;width:100%;border:1px solid #d3d3d3;border-radius:3px;padding:9px 10px;font-size:14px;-webkit-appearance:none}
 
 	/* 페이지 spot영역 */
 	.bg_img_sec{height:275px}
