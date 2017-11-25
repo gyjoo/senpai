@@ -1,0 +1,24 @@
+extends ./part/layout.pug
+block content
+  <div id="container">
+    <div class="con_area">
+      <div class="contents">
+        - var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
+        each source in sources
+          include ./part/source_item.pug
+        <div class="sidebar">
+           <h3>정렬 순서</h3>
+           <div class="side_list">
+           </div>
+           <div class="input_mail" data-reactid=".0.1.0.0.1:1.2">
+              <fieldset data-reactid=".0.1.0.0.1:1.2.0">
+                 <legend data-reactid=".0.1.0.0.1:1.2.0.0">e-mail 구독신청</legend>
+                 <i class="xe-email" data-reactid=".0.1.0.0.1:1.2.0.1"></i>
+                 <form action="/" method="POST" data-reactid=".0.1.0.0.1:1.2.0.2"><input type="text" placeholder="이메일 주소 입력" class="input_email" data-reactid=".0.1.0.0.1:1.2.0.2.0"><input type="submit" class="btn_email_request" value="구독하기" data-reactid=".0.1.0.0.1:1.2.0.2.1"></form>
+                 <p class="state_msg success" data-reactid=".0.1.0.0.1:1.2.0.3"></p>
+              </fieldset>
+           </div>
+        </div>      
+      </div>
+    </div>
+  </div>

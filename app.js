@@ -34,6 +34,10 @@ app.get('/naver', function(req, res, next) {
   res.render('naver', { title: 'Naver' });
 });
 
+app.get('/search', function(req, res, next) {
+  res.render('search', { title: 'Search' });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
