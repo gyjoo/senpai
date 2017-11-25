@@ -34,12 +34,15 @@ app.get('/naver', function(req, res, next) {
   res.render('naver', { title: 'Naver' });
 });
 
-app.get('/search', function(req, res, next) {
-  res.render('search', { title: 'Search' });
+app.get('/search/', function(req, res, next) {
+  res.redirect('search', { title: 'Search' });
 });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log(req)
+  console.log(res)
+
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
@@ -61,6 +64,6 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.listen(3000, function(){
-    console.log('Connected 3000 port!');
+app.listen(3001, function(){
+    console.log('Connected 3001 port!');
 });
