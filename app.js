@@ -51,3 +51,7 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+
+app.listen(3000, function(){
+    console.log('Connected 3000 port!');
+});
