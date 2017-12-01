@@ -43,7 +43,7 @@ html,body{height:100%}
 .main_lnb .header_sec .lnb .lnb_top_logo{display:block;width:120px;height:27px;background:url(../images/logo.gif) 0 0 no-repeat;background-size:120px 27px}
 .main_lnb .header_sec .lnb{overflow:hidden;margin-left:170px}
 .main_lnb .header_sec .lnb li{float:left;font-size:16px;text-align:left;margin:24px 30px 0 0}
-.main_lnb .header_sec .lnb li:last-child{margin-right:0}
+.main_lnb .header_sec .lnb l요:last-child{margin-right:0}
 .main_lnb .header_sec .lnb li a{display:block;color:#a0a0a0;text-decoration:none;transition:all 0.3s ease}
 .main_lnb .header_sec .lnb li a:hover{color:#000}
 .main_lnb .header_sec .lnb li.on a{color:#000;border-bottom:2px solid #32cda0}
@@ -83,16 +83,37 @@ html,body{height:100%}
 .bg_img_sec .img_three_area .three_img_sec .three_item .item_sec{max-width:350px}
 .bg_img_sec .img_three_area .three_img_sec .three_item .item_sec .item_sec_txt{font-size:16px;margin:30px 20px;max-height:40px;overflow:hidden}
 
+
 /* 추가된 부분 by Jae-hyuk */
-.bg_img_sec .img_area .img_sec .slogan{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#000000}
+.bg_img_sec .img_area .img_sec .slogan{position:absolute;top:25%;left:50%;transform: translate(-50%, -50%);}
+.bg_img_sec .img_area .img_sec .slogan{width:100%;max-width:880px;text-align:center;z-index:1}
+.bg_img_sec .img_area .img_sec .slogan{font-family:xeicon;color:#a5a5a5;font-size:30px;letter-spacing:-2px;transition:all 0.3s ease}
+.bg_img_sec .img_area .img_sec .slogan{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#FFFFFF}
+
+.bg_img_sec .img_area .img_sec .select_search .select_ask{position:absolute;top:50%;left:40%;transform: translate(-50%, -50%);}
+.bg_img_sec .img_area .img_sec .select_search .select_ask{font-family:xeicon;color:#a5a5a5;font-size:20px;letter-spacing:-2px;transition:all 0.3s ease}
+.bg_img_sec .img_area .img_sec .select_search .select_ask{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#FFFFFF}
+
+.bg_img_sec .img_area .img_sec .select_search .select_source{position:absolute;top:50%;left:60%;transform: translate(-50%, -50%);}
+.bg_img_sec .img_area .img_sec .select_search .select_source{font-family:xeicon;color:#a5a5a5;font-size:20px;letter-spacing:-2px;transition:all 0.3s ease}
+.bg_img_sec .img_area .img_sec .select_search .select_source{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#FFFFFF}
+/*
+.bg_img_sec .img_area .img_sec .select_search .c_checkbox { width: 17px; height: 17px; margin: 2px 0 2px 0; background: #ddd; border-radius: 100%; position: relative; -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .5); -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .5); box-shadow: 0 1px 1px rgba(0, 0, 0, .5); }
+.bg_img_sec .img_area .img_sec .select_search .c_checkbox label.inner { display: block;width: 12.75px; height: 12.75px; border-radius: 100px; -webkit-transition: all .5s ease; -moz-transition: all .5s ease; -o-transition: all .5s ease; -ms-transition: all .5s ease; transition: all .5s ease; cursor: pointer; position: absolute; top: 2.125px; left: 2.125px; z-index: 1; background: #eee; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5); -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5); box-shadow: inset 0 1px 1px rgba(0, 0, 0, .5);}
+.bg_img_sec .img_area .img_sec .select_search .c_checkbox label.outer { margin-left: 25px; }
+.bg_img_sec .img_area .img_sec .select_search .c_checkbox [type=checkbox] { display: none }
+.bg_img_sec .img_area .img_sec .select_search .c_checkbox input[type=checkbox]:checked+label.inner { background: green }
+
+*/
 .bg_img_sec .pc_search_input input.search_area::-webkit-input-placeholder{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#a0a0a0}
 .bg_img_sec .pc_search_input input.search_area:-ms-input-placeholder{font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif;color:#a0a0a0}
-.bg_img_sec .pc_search_input{position:absolute;top:50%;left:50%;transform: translate(-50%, -50%);}
-.bg_img_sec .pc_search_input input{border:1px solid #d3d3d3;border-radius:3px;padding:0 10px;width:700px;height:34px;_line_height:20px;color:#6e6e70;-webkit-appearance:none;vertical-align:middle;transition:all 0.3s ease}
+.bg_img_sec .pc_search_input{position:absolute;top:65%;left:50%;transform: translate(-50%, -50%);}
+.bg_img_sec .pc_search_input input{border:1px solid #d3d3d3;border-radius:3px;padding:0 10px;width:600px;height:34px;_line_height:20px;color:#6e6e70;-webkit-appearance:none;vertical-align:middle;transition:all 0.3s ease}
 .bg_img_sec .pc_search_input input.search_area:focus,.bg_img_sec .pc_search_input input.search_area:hover{border:1px solid #a0a0a0;color:#6e6e70}
 .bg_img_sec .pc_search_input .btn_search{width:43px;height:34px;border:0;border-left:1px solid #E7E7E7;border-radius:0;margin-left:16px;cursor:pointer;font-family:xeicon;background:#fff;color:#a5a5a5;font-size:21px;letter-spacing:-2px;transition:all 0.3s ease}
 .bg_img_sec .pc_search_input input.btn_search:hover{color:#555}
 .bg_img_sec .m_search_sec input{display:none}
+
 
 /* news & hello world 페이지 spot영역 */
 .bg_news_sec,
@@ -115,6 +136,37 @@ html,body{height:100%}
 .bg_about_sec .about_area .about_sec .about_title .bar{display:inline-block;width:1px;margin:0 20px;background:#fff;opacity:0.5}
 .bg_news_sec .news_area .news_sec .news_title .news_sub_title,
 .bg_hworld_sec .hworld_area .hworld_sec .hworld_title .hworld_sub_title,
+.bg_about_sec .about_area .about_sec .about_title .about_sub_title{font-size:17px}
+
+
+/* 추가된 부분 by Jae-hyuk */
+.bg_ask_sec,
+.bg_source_sec,
+.bg_sourceup_sec,
+.bg_about_sec{position:relative;height:150px;width:100%}
+.bg_ask_sec .ask_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_news_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#3A9F5B;background-repeat:no-repeat}
+.bg_source_sec .source_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_helloworld_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}
+.bg_sourceup_sec .sourceup_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_helloworld_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}
+.bg_about_sec .about_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_about_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#0E7FC5;background-repeat:no-repeat}
+.bg_ask_sec .ask_area .ask_sec,
+.bg_source_sec .source_area .source_sec,
+.bg_sourceup_sec .sourceup_area .sourceup_sec,
+.bg_about_sec .about_area .about_sec{position:relative;overflow:hidden;width:100%;max-width:1100px;height:150px;margin:0 auto}
+.bg_ask_sec .ask_area .ask_sec .spot_ask_img,
+.bg_source_sec .source_area .source_sec .spot_source_img,
+.bg_sourceup_sec .sourceup_area .sourceup_sec .spot_sourceup_img,
+.bg_about_sec .about_area .about_sec .spot_about_img{position:absolute;top:0;left:50%;width:1100px;height:150px;margin-left:-550px}
+.bg_ask_sec .ask_area .ask_sec .ask_title,
+.bg_source_sec .source_area .source_sec .source_title,
+.bg_sourceup_sec .sourceup_area .sourceup_sec .sourceup_title,
+.bg_about_sec .about_area .about_sec .about_title{position:relative;margin-top:60px;font-size:26px;color:#fff;z-index:1;text-align:center}
+.bg_ask_sec .ask_area .ask_sec .ask_title .bar,
+.bg_source_sec .source_area .source_sec .source_title .bar,
+.bg_sourceup_sec .sourceup_area .sourceup_sec .sourceup_title .bar,
+.bg_about_sec .about_area .about_sec .about_title .bar{display:inline-block;width:1px;margin:0 20px;background:#fff;opacity:0.5}
+.bg_ask_sec .ask_area .ask_sec .ask_title .ask_sub_title,
+.bg_source_sec .source_area .source_sec .source_title .source_sub_title,
+.bg_sourceup_sec .sourceup_area .sourceup_sec .sourceup_title .sourceup_sub_title,
 .bg_about_sec .about_area .about_sec .about_title .about_sub_title{font-size:17px}
 
 /* search result 페이지 */
@@ -483,6 +535,7 @@ li[id^='fn']{padding-top:75px;margin-top:-75px;font-family:Helvetica,sans-serif}
 	.bg_img_sec .img_area .img_sec .big_spot_img{width:710px;height:239px;margin-left:-355px}
 	.bg_img_sec .img_area .img_sec .big_title{margin-top:80px}
 	.bg_img_sec .img_area .img_sec .btn_big_title a{margin-top:20px}
+	.bg_img_sec .img_area .img_sec .big_title .slogan
 
 	.bg_img_sec .img_three_area{height:238px}
 	.bg_img_sec .img_three_area .three_img_sec{max-width:730px;padding:30px 0 0}
@@ -514,7 +567,7 @@ li[id^='fn']{padding-top:75px;margin-top:-75px;font-family:Helvetica,sans-serif}
 	.main_lnb .header_sec .inner_sec .menu_sec.on,
 	.main_lnb .header_sec .inner_sec .m_search_sec{background:#f7f7f7}
 	.main_lnb .header_sec .inner_sec .menu_sec ul{display:none}
-	.main_lnb .header_sec .inner_sec .menu_sec .btn_lnb_menu{position:absolute;top:17px;left:15px;width:21px;height:16px;background:url(../img/app/btn_m_menu.gif) no-repeat;background-size:21px 16px;z-index:10}
+	.main_lnb .header_sec .inner_sec .menu_sec .btn_lnb_menu{position:absolute;top:17px;left:15px;width:21px;height:16px;background:url(../../app/img/logo_temp.gif) no-repeat;background-size:21px 16px;z-index:10}
 	.main_lnb .header_sec .inner_sec .menu_sec.on .btn_lnb_menu{background:url(../img/app/btn_m_close.gif) no-repeat;background-size:21px 16px;z-index:10}
 	.main_lnb .header_sec .inner_sec .menu_sec .btn_lnb_menu a{display:block;height:100%}
 
@@ -592,6 +645,36 @@ li[id^='fn']{padding-top:75px;margin-top:-75px;font-family:Helvetica,sans-serif}
 	.bg_news_sec .news_area .news_sec .news_title .news_sub_title,
 	.bg_hworld_sec .hworld_area .hworld_sec .hworld_title .bar,
 	.bg_hworld_sec .hworld_area .hworld_sec .hworld_title .hworld_sub_title,
+	.bg_about_sec .about_area .about_sec .about_title .bar,
+	.bg_about_sec .about_area .about_sec .about_title .about_sub_title{display:none}
+
+	/* 추가된 부분 by JH */
+	.bg_ask_sec,
+	.bg_source_sec,
+	.bg_sourceup_sec,
+	.bg_about_sec{height:100px}
+	.bg_ask_sec .ask_area,
+	.bg_source_sec .source_area,
+	.bg_sourceup_sec .sourceup_area,
+	.bg_about_sec .about_area{height:100px}
+	.bg_ask_sec .ask_area .ask_sec,
+	.bg_source_sec .source_area .source_sec,
+	.bg_sourceup_sec .sourceup_area .sourceup_sec,
+	.bg_about_sec .about_area .about_sec{overflow:hidden;height:99px;border-bottom:1px solid #e8e8e8}
+	.bg_ask_sec .ask_area .ask_sec .spot_ask_img,
+	.bg_source_sec .source_area .source_sec .spot_source_img,
+	.bg_sourceup_sec .sourceup_area .sourceup_sec .spot_sourceup_img,
+	.bg_about_sec .about_area .about_sec .spot_about_img{width:719px;height:99px;margin-left:-360px}
+	.bg_ask_sec .ask_area .ask_sec .ask_title,
+	.bg_source_sec .source_area .source_sec .source_title,
+	.bg_sourceup_sec .sourceup_area .sourceup_sec .sourceup_title,
+	.bg_about_sec .about_area .about_sec .about_title{width:90%;margin-left:auto;margin-right:auto;margin-top:34px;padding-left:0;text-align:center}
+	.bg_ask_sec .ask_area .ask_sec .ask_title .bar,
+	.bg_ask_sec .ask_area .ask_sec .ask_title .ask_sub_title,
+	.bg_source_sec .source_area .source_sec .source_title .bar,
+	.bg_source_sec .source_area .source_sec .source_title .source_sub_title,
+	.bg_sourceup_sec .sourceup_area .sourceup_sec .sourceup_title .bar,
+	.bg_sourceup_sec .sourceup_area .sourceup_sec .sourceup_title .sourceup_sub_title,
 	.bg_about_sec .about_area .about_sec .about_title .bar,
 	.bg_about_sec .about_area .about_sec .about_title .about_sub_title{display:none}
 

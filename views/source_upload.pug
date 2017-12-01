@@ -1,27 +1,26 @@
 extends ./part/layout.pug
 block content
-  <div class="bg_search_sec" data-reactid=".0.0.1">
-    <div class="search_result_area" data-reactid=".0.0.1.0">
-      <div class="result_sec" data-reactid=".0.0.1.0.0">
-        <div class="keyword_result" data-reactid=".0.0.1.0.0.0">
-          <span class="keyword">'123'</span><span>에 대한 결과</span>
-        </div>
+
+  <div class="bg_sourceup_sec" data-reactid=".0.0.1">
+    <div class="sourceup_area" data-reactid=".0.0.1.0">
+      <div class="sourceup_sec" data-reactid=".0.0.1.0.0">
+        <p class="sourceup_title" data-reactid=".0.0.1.0.0.0">
+          <span data-reactid=".0.0.1.0.0.0.0">Upload</span>
+          <span class="bar" data-reactid=".0.0.1.0.0.0.1">&nbsp;</span>
+          <span class="sourceup_sub_title" data-reactid=".0.0.1.0.0.0.2">Source를 업로드합니다.</span>
+        </p>
       </div>
     </div>
   </div>
+
   <div id="container">
     <div class="con_area">
       <div class="contents">
-        - var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
-        each source in sources
-          include ./part/source_item.pug
+
         <div class="sidebar">
-           <h3>정렬 순서</h3>
            <div class="side_list">
              <ul>
-               <li><a href="#">Menubar 1</a></li>
-               <li><a href="#">Menubar 2</a></li>
-               <li><a href="#">Menubar 3</a></li>
+               <li><a href="#">Upload New</a></li>
              </ul>
            </div>
            <div class="input_mail" data-reactid=".0.1.0.0.1:1.2">
@@ -32,7 +31,11 @@ block content
                  <p class="state_msg success" data-reactid=".0.1.0.0.1:1.2.0.3"></p>
               </fieldset>
            </div>
-        </div>      
+        </div>
+
+        <div> <!-- 게시글 작성 iframe 또는 게시판 툴 가져다 넣기 -->
+        </div>
+
       </div>
     </div>
   </div>
