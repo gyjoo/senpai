@@ -9,6 +9,8 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 // ethereum contracts
+// var truffle = require('./app/javascripts/app.js');
+
 // var Senpai = artifacts.require("./Senpai.sol");
 /*
 var Web3 = require('web3');
@@ -64,6 +66,10 @@ app.get('/naver', function(req, res, next) {
   res.render('naver', { title: 'Naver' });
 });
 
+app.get('/truffle_test', function(req, res, next) {
+  res.render('truffle_test', { title: 'truffle_test' });
+});
+
 app.get('/source_upload', function(req, res, next) {
   res.render('source_upload', { title: 'source_upload' });
 });
@@ -84,7 +90,7 @@ app.get('/search/', function(req, res, next) {
   res.redirect('search', { title: 'Search' });
 });
 
-app.get('/error/', function(req, res, next) {
+app.get('/error', function(req, res, next) {
   res.redirect('error', { title: 'error' });
 });
 
