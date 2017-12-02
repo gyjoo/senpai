@@ -3,7 +3,19 @@
 
 .con_area .contents .post_article.center{position:relative;max-width:100%;overflow:hidden;margin:0px 240px 30px 240px}
 .con_area .contents .post_article.right{position:relative;max-width:100%;overflow:hidden;margin:0px 0px 30px 240px}
-.con_area .contents .write_from{position:relative;max-width:100%;overflow:hidden;margin:0px 0px 30px 240px}
 
 .con_area .contents .sidebar li a{font-size: 16px;font-weight: 200}
 .con_area .contents .sidebar li a.bold{font-size: 16px; font-weight: 700;color: black}
+
+.con_area .contents .write_form{position:relative;max-width:100%;overflow:hidden;margin:0px 240px 30px 240px}
+
+.write_form form input {padding: 5px; margin: 5px; width: 350px}
+.writeDetail {position:relative;overflow:hidden}
+.writeThumbnail {position:relative;overflow:hidden; width: 200px; height: 200px}
+.write_form form input.inputSubject {padding: 5px; margin: 5px; width: 400px; right: 0px}
+.write_form form textarea {padding: 10px; margin: 10px 10px 5px 5px; border-color: darkgray; font-size: 15px}
+input.inputSubject {font-size: 26px}
+input.inputWriter, input.inputPassword {font-size: 15px}
+
+.addBtngroup {margin-top: 20px}
+.addBtngroup a {font-size: 20px; right: 0px; text-align: right}

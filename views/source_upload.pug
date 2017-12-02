@@ -14,37 +14,44 @@ block content
   <div id="container">
     <div class="con_area">
       <div class="contents">
-        <div class="left sidebar"></div>
         <div class="write_form">
-          <form id="writeAction" action="/boards" method="post">
-              <input type="text" class="inputSubject" id="addContentSubject" name="addContentSubject" placeholder="제목">
-              <input type="text" class="inputWriter" id="addContentWriter" name="addContentWriter" placeholder="작성자">
-              <input type="password" class="inputPassword" id="addContentPassword" name="addContentPassword" placeholder="비밀번호">
-              <textarea class="textContents" id="addContents" name="addContents" rows="20" cols="80"></textarea>
+          <form id="writeAction" action="/source" method="post">
+              <input type="text" class="inputSubject" id="addContentSubject" name="addContentSubject" placeholder="Title">
+              //- <div class="writeThumbnail">
+              //-   <img src="/content/images/2017/11/D2Coding.png" width=100% height=100% alt="">
+              //- </div>
+              <div class="writeDetail">
+                <input type="text" class="inputSourceType" id="addContentSourceType" name="addContentSourceType" placeholder="Source Type (ex: Exam)">
+                <input type="text" class="inputClassNumber" id="addContentClassNumber" name="addContentClassNumber" placeholder="Class Number (ex: CSED 101)">
+              </div>
+              <textarea class="textContents" id="addContents" name="addContents" rows="20" cols="80" placeholder="Detailed Explanation"></textarea>
           </form>
           <div id = "new" class="addBtngroup">
-              <a onclick="submitContents('add');"><div>SUBMIT</div></a>
-              <a onclick="cancelWriteForm('cancel');"><div>CANCEL</div></a>
+            //- <div><a onclick="cancelWriteForm('cancel');">CANCEL</a></div>
+            <div><a onclick="submitContents('add');">SUBMIT</a></div>
           </div>
         </div>
-      
-        div 
-          h2.center-align(style='padding: 1em') What do you want to tell the world?
-          form(method='POST' action='/postmessage')
-            .row
-              .input-field
-                input.validate(type='text' name='author')
-                label(for='author') Author 
-            .row
-              .input-field
-                input.validate(type='text' name='title')
-                label(for='title') Title 
-            .row
-              .input-field
-                input.validate(type='text' name='body')
-                label(for='body') Message
-            button.btn.waves-effect.waves-light(type='submit', value='Submit')
-              i.material-icons send
+        
+        //- div 
+        //-   h2.center-align(style='padding: 1em') What do you want to tell the world?
+        //-   form(method='POST' action='/postmessage')
+        //-     .row
+        //-       .input-field
+        //-         label(for='author') Author 
+        //-         input.validate(type='text' name='author')
+        //-     .row
+        //-       .input-field
+        //-         label(for='title') Title 
+        //-         input.validate(type='text' name='title')
+        //-     .row
+        //-       .input-field
+        //-         label(for='body') Message
+        //-         input.validate(type='text' name='body')
+        //-     button.btn.waves-effect.waves-light(type='submit', value='Submit')
+        //-       i.material-icons send
       </div>
     </div>
   </div>
+  
+block js
+  <script type="text/javascript" src="source_upload.js"></script>
