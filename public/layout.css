@@ -1,3 +1,5 @@
+.con_area {max-width: 1280px}
+
 .con_area .contents .sidebar.left{position:absolute;top:0;left:0;width:200px}
 .con_area .contents .sidebar.right{position:absolute;top:0;right:0;width:200px}
 

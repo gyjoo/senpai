@@ -5,13 +5,13 @@ contract('Senpai', function(accounts) {
     return Senpai.deployed().then(function(instance) {
       instance.create_product("title", "url", 1,
     		1, 1, 1, "CSED232", "한글");
-      instance.purchase_product(1).then(function(value){
-        console.log(value);
-      });
+      // instance.purchase_product(1).then(function(value){
+      //   console.log(value);
+      // });
       /*
       instance.purchase_product(0);
       console.log('shit!!!!!');
-      
+
       instance.getDownloadNum(0).then(function(value){
         console.log(value);
       })

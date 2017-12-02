@@ -1,32 +1,40 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/myDB');
-var index = require('./routes/index');
-var users = require('./routes/users');
-var post = require('./routes/post');
+// var SenpaiArtifact = require('./build/contracts/Senpai.json');
 
-// ethereum contracts
-// var truffle = require('./app/javascripts/app.js');
-
-// var Senpai = artifacts.require("./Senpai.sol");
 /*
-var Web3 = require('web3');
+----------------------------------------------------------------------
 
-if (typeof web3 !== 'undefined') {
-  web3 = new Web3(web3.currentProvider);
-} else {
-  // set the provider you want from Web3.providers
-  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-}
-var web3 = new Web3(App.web3Provider);
+    ETHEREUM CONTRACTS
 
-console.log(App);
-*/
+----------------------------------------------------------------------
+ */
+
+// // Declarations
+// var Web3 = require('web3');
+// var contract = require('truffle-contract');
+//
+// // MetaCoin is our usable abstraction, which we'll use through the code below.
+// var metacoin_artifacts = require('./build/contracts/MetaCoin.json');
+// var MetaCoin = contract(metacoin_artifacts);
+
+/*
+----------------------------------------------------------------------
+
+    VIEWS & ROUTINGS
+
+----------------------------------------------------------------------
+ */
+
+ var express = require('express');
+ var path = require('path');
+ var favicon = require('serve-favicon');
+ var logger = require('morgan');
+ var cookieParser = require('cookie-parser');
+ var bodyParser = require('body-parser');
+ var mongoose = require('mongoose');
+ mongoose.connect('mongodb://localhost/myDB');
+ var index = require('./routes/index');
+ var users = require('./routes/users');
+ var source = require('./routes/source');
 
 // DB
 var db = mongoose.connection;
@@ -64,7 +72,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/posts', post);
+app.use('/source', source);
 app.use('/users', users);
 
 // 소스 게시하기
@@ -95,12 +103,6 @@ app.get('/truffle_test', function(req, res, next) {
 
 app.get('/source_upload', function(req, res, next) {
   res.render('source_upload', { title: 'source_upload' });
-});
-
-app.get('/source', function(req, res, next) {
-  var sort = req.query.sort;
-  var keyword = req.query.keyword;
-  res.render('source', { title: 'source', keyword: keyword, sort: sort});
 });
 
 app.get('/ask', function(req, res, next) {
@@ -144,7 +146,30 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+module.exports.rpc = {
+  host: "localhost",
+  port: 8545
+};
+
+// module.exports.metacoin_artifacts = metacoin_artifacts;
+
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+//
+// module.exports.module.loaders = {
+//       { test: /\.json$/, use: 'json-loader' },
+//       {
+//         test: /\.js$/,
+//         exclude: /(node_modules|bower_components)/,
+//         loader: 'babel-loader',
+//         query: {
+//           presets: ['es2015'],
+//           plugins: ['transform-runtime']
+//         }
+//       }
+// }
+
 
 app.listen(3001, function(){
     console.log('Connected 3001 port!');
+
 });

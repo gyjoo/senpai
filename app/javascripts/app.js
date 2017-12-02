@@ -1,16 +1,9 @@
-// Import the page's CSS. Webpack will know what to do with it.
-import "../stylesheets/app.css";
-
-// Import libraries we need.
-import { default as Web3} from 'web3';
-import { default as contract } from 'truffle-contract'
-
-// Import our contract artifacts and turn them into usable abstractions.
-import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
-
 // MetaCoin is our usable abstraction, which we'll use through the code below.
-var MetaCoin = contract(metacoin_artifacts);
-
+var metacoin_artifacts;
+var MetaCoin;
+$.getJSON('../build/contracts/MetaCoin.json', function(data) {
+      metacoin_artifacts = data;
+    });
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
 // For application bootstrapping, check out window.addEventListener below.
@@ -40,6 +33,9 @@ window.App = {
       account = accounts[0];
 
       self.refreshBalance();
+
+       MetaCoin = TruffleContract(metacoin_artifacts);
+
     });
   },
 

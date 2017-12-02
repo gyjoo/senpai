@@ -37,9 +37,9 @@ html,body{height:100%}
 @font-face{font-family:av55;src:url(../font/avenir55.eot);src:local('※'),url(../font/avenir55.woff) format('woff')}
 */
 #header .main_lnb{position:fixed;top:0;width:100%;background-color:#fff;border-top:1px solid #32cda0;border-bottom:1px solid #d6d6d6;z-index:1000}
-.main_lnb .header_sec{position:relative;overflow:hidden;width:100%;max-width:1180px;margin:0 auto;font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif}
+.main_lnb .header_sec{position:relative;overflow:hidden;width:100%;max-width:1280px;margin:0 auto;font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif}
 .main_lnb .header_sec h1{position:absolute;left:0;top:20px}
-.main_lnb .header_sec .inner_sec{position:relative;max-width:1180px;height:66px;margin:0 40px}
+.main_lnb .header_sec .inner_sec{position:relative;max-width:1280px;height:66px;margin:0 40px}
 .main_lnb .header_sec .lnb .lnb_top_logo{display:block;width:120px;height:27px;background:url() 0 0 no-repeat;background-size:120px 27px}
 .main_lnb .header_sec .lnb{overflow:hidden;margin-left:170px}
 .main_lnb .header_sec .lnb li{float:left;font-size:16px;text-align:left;margin:24px 30px 0 0}
@@ -208,7 +208,7 @@ html,body{height:100%}
 .con_area .contents.search_result .result_count .search_sort .ly_select li a:hover{color:#000}
 
 
-#container .con_area{position:relative;width:100%;max-width:1180px;margin:0 auto;padding-top:50px;padding-bottom:100px}
+#container .con_area{position:relative;width:100%;max-width:1280px;margin:0 auto;padding-top:50px;padding-bottom:100px}
 .con_area .contents{position:relative;max-width:1100px;margin:0 40px;zoom:1;clear:both}
 .con_area .contents .post_article{position:relative;max-width:100%;overflow:hidden;margin:0 290px 30px 0}
 .con_area .contents .sidebar{position:absolute;top:0;right:0;width:250px}
@@ -316,7 +316,7 @@ html,body{height:100%}
 .con_area .contents.detail_view .post_article .cont_post .post_writer_info .writer_info{position:relative;padding-top:30px;min-height:50px;display:table}
 .con_area .contents.detail_view .post_article .cont_post .post_writer_info .writer_info:first-child{padding-top:0}
 
-.con_area .contents.error{position:relative;max-width:1180px;margin:0;padding:150px 0 165px;overflow:hidden;zoom:1;clear:both}
+.con_area .contents.error{position:relative;max-width:1280px;margin:0;padding:150px 0 165px;overflow:hidden;zoom:1;clear:both}
 .con_area .contents.error .bg_error_img{position:absolute;top:0;left:50%;width:176px;height:210px;margin-left:197px}
 .con_area .contents.error .tit{font-size:26px;color:#434a53;line-height:36px;text-align:center}
 .con_area .contents.error .info_txt{font-size:16px;color:#888;line-height:26px;text-align:center;padding:30px 0}
