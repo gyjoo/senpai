@@ -16,6 +16,7 @@
 // var metacoin_artifacts = require('./build/contracts/MetaCoin.json');
 // var MetaCoin = contract(metacoin_artifacts);
 
+
 /*
 ----------------------------------------------------------------------
 
@@ -34,8 +35,8 @@
  mongoose.connect('mongodb://localhost/myDB');
  var index = require('./routes/index');
  var users = require('./routes/users');
- var post = require('./routes/post');
- 
+ var source = require('./routes/source');
+
 // DB
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -72,7 +73,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/posts', post);
+app.use('/source', source);
 app.use('/users', users);
 
 // 소스 게시하기
@@ -103,12 +104,6 @@ app.get('/truffle_test', function(req, res, next) {
 
 app.get('/source_upload', function(req, res, next) {
   res.render('source_upload', { title: 'source_upload' });
-});
-
-app.get('/source', function(req, res, next) {
-  var sort = req.query.sort;
-  var keyword = req.query.keyword;
-  res.render('source', { title: 'source', keyword: keyword, sort: sort});
 });
 
 app.get('/ask', function(req, res, next) {
