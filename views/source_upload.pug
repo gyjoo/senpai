@@ -1,40 +1,50 @@
 extends ./part/layout.pug
 block content
-
-  <div class="bg_sourceup_sec" data-reactid=".0.0.1">
-    <div class="sourceup_area" data-reactid=".0.0.1.0">
-      <div class="sourceup_sec" data-reactid=".0.0.1.0.0">
-        <p class="sourceup_title" data-reactid=".0.0.1.0.0.0">
-          <span data-reactid=".0.0.1.0.0.0.0">Upload</span>
-          <span class="bar" data-reactid=".0.0.1.0.0.0.1">&nbsp;</span>
-          <span class="sourceup_sub_title" data-reactid=".0.0.1.0.0.0.2">Source를 업로드합니다.</span>
+  <div class="bg_sourceup_sec">
+    <div class="sourceup_area">
+      <div class="sourceup_sec">
+        <p class="sourceup_title">
+          <span>Upload</span>
+          <span class="bar">&nbsp;</span>
+          <span class="sourceup_sub_title">Source를 업로드합니다.</span>
         </p>
       </div>
     </div>
   </div>
-
   <div id="container">
     <div class="con_area">
       <div class="contents">
-        <div class="sidebar">
-           <div class="side_list">
-             <ul>
-               <li><a href="#">Upload New</a></li>
-             </ul>
-           </div>
-           <div class="input_mail" data-reactid=".0.1.0.0.1:1.2">
-              <fieldset data-reactid=".0.1.0.0.1:1.2.0">
-                 <legend data-reactid=".0.1.0.0.1:1.2.0.0">e-mail 구독신청</legend>
-                 <i class="xe-email" data-reactid=".0.1.0.0.1:1.2.0.1"></i>
-                 <form action="/" method="POST" data-reactid=".0.1.0.0.1:1.2.0.2"><input type="text" placeholder="이메일 주소 입력" class="input_email" data-reactid=".0.1.0.0.1:1.2.0.2.0"><input type="submit" class="btn_email_request" value="구독하기" data-reactid=".0.1.0.0.1:1.2.0.2.1"></form>
-                 <p class="state_msg success" data-reactid=".0.1.0.0.1:1.2.0.3"></p>
-              </fieldset>
-           </div>
+        <div class="left sidebar"></div>
+        <div class="write_form">
+          <form id="writeAction" action="/boards" method="post">
+              <input type="text" class="inputSubject" id="addContentSubject" name="addContentSubject" placeholder="제목">
+              <input type="text" class="inputWriter" id="addContentWriter" name="addContentWriter" placeholder="작성자">
+              <input type="password" class="inputPassword" id="addContentPassword" name="addContentPassword" placeholder="비밀번호">
+              <textarea class="textContents" id="addContents" name="addContents" rows="20" cols="80"></textarea>
+          </form>
+          <div id = "new" class="addBtngroup">
+              <a onclick="submitContents('add');"><div>SUBMIT</div></a>
+              <a onclick="cancelWriteForm('cancel');"><div>CANCEL</div></a>
+          </div>
         </div>
-
-        <div> <!-- 게시글 작성 iframe 또는 게시판 툴 가져다 넣기 -->
-        </div>
-
+      
+        div 
+          h2.center-align(style='padding: 1em') What do you want to tell the world?
+          form(method='POST' action='/postmessage')
+            .row
+              .input-field
+                input.validate(type='text' name='author')
+                label(for='author') Author 
+            .row
+              .input-field
+                input.validate(type='text' name='title')
+                label(for='title') Title 
+            .row
+              .input-field
+                input.validate(type='text' name='body')
+                label(for='body') Message
+            button.btn.waves-effect.waves-light(type='submit', value='Submit')
+              i.material-icons send
       </div>
     </div>
   </div>

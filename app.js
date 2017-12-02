@@ -1,3 +1,5 @@
+// var SenpaiArtifact = require('./build/contracts/Senpai.json');
+
 /*
 ----------------------------------------------------------------------
 
@@ -5,6 +7,7 @@
 
 ----------------------------------------------------------------------
  */
+
 // // Declarations
 // var Web3 = require('web3');
 // var contract = require('truffle-contract');
@@ -13,8 +16,6 @@
 // var metacoin_artifacts = require('./build/contracts/MetaCoin.json');
 // var MetaCoin = contract(metacoin_artifacts);
 
-// var SenpaiArtifact = require('./build/contracts/Senpai.json');
-
 /*
 ----------------------------------------------------------------------
 
@@ -22,15 +23,38 @@
 
 ----------------------------------------------------------------------
  */
+
  var express = require('express');
  var path = require('path');
  var favicon = require('serve-favicon');
  var logger = require('morgan');
  var cookieParser = require('cookie-parser');
  var bodyParser = require('body-parser');
-
+ var mongoose = require('mongoose');
+ mongoose.connect('mongodb://localhost/myDB');
  var index = require('./routes/index');
  var users = require('./routes/users');
+ var post = require('./routes/post');
+ 
+// DB
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  	console.log("open");
+});
+
+var userSchema = mongoose.Schema({
+    username: 'string',
+    age: 'number'
+});
+var User = mongoose.model('User', userSchema);
+var user1 = new User({ username: 'gchoi', age: 30 });
+user1.save(function (err, user1) {
+  if (err) console.log("error");
+});
+
+
+
 
 var app = express();
 app.locals.pretty = true;
@@ -48,6 +72,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/posts', post);
 app.use('/users', users);
 
 // 소스 게시하기
