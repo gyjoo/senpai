@@ -32,10 +32,10 @@ html.
                   </div>
 
                   <ul>
-                    <li><a href="#">ASK</a></li>
-                    <li><a href="#">SOURCE</a></li>
-                    <li><a href="#">HELP</a></li>
-                    <li><a href="#">ABOUT</a></li>
+                    <li class="page_button ask"><a href="/ask">ASK</a></li>
+                    <li class="page_button source"><a href="/source">SOURCE</a></li>
+                    <li class="page_button help"><a href="#">HELP</a></li>
+                    <li class="page_button about"><a href="#">ABOUT</a></li>
                   </ul>
                 </div>
 
@@ -60,9 +60,7 @@ html.
           </div>
         </div>
       </div>
-
       block content
-
       <div id="footer">
         <div class="inner_sec">
           <div class="footer_sec">
@@ -74,10 +72,7 @@ html.
                 <li><a href="/d2.atom" class="rss" target="_blank"><i class="xe-social-rssfeed"></i></a></li>
               </ul>
             </div>
-            <p class="copyright"><a href="http://www.naver.com" target="_blank" class="naver_logo"><img src="/static/img/app/bottom_naver_logo.jpg" width="63" height="11" alt="naver"></a><span>Copyright</span> © <a href="http://www.navercorp.com/" target="_blank"><strong>SENPAI Corp.</strong></a> <span>All Rights Reserved.</span></p>
-            <div class="footer_logo">
-              <div class="footer_logo_img"><img src="/static/img/app/footer_d2_logo.png" alt="naver d2"></div>
-            </div>
+            <p class="copyright"><a href="http://www.naver.com" target="_blank" class="naver_logo"></a><span>Copyright</span> © <a href="http://www.navercorp.com/" target="_blank"><strong>SENPAI Corp.</strong></a> <span>All Rights Reserved.</span></p>
           </div>
         </div>
       </div>
@@ -85,6 +80,8 @@ html.
 </div>
 <script src='http://code.jquery.com/jquery-latest.js'></script>
 <script type="text/javascript" src="layout.js"></script>
+block js
+<link rel="stylesheet" type="text/css" href="layout.css" />
 </body>
 </html>
 </body>

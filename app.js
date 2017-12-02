@@ -75,7 +75,9 @@ app.get('/source_upload', function(req, res, next) {
 });
 
 app.get('/source', function(req, res, next) {
-  res.render('source', { title: 'source' });
+  var sort = req.query.sort;
+  var keyword = req.query.keyword;
+  res.render('source', { title: 'source', keyword: keyword, sort: sort});
 });
 
 app.get('/ask', function(req, res, next) {
@@ -87,7 +89,7 @@ app.get('/ask_new', function(req, res, next) {
 });
 
 app.get('/search/', function(req, res, next) {
-  res.redirect('search', { title: 'Search' });
+  res.render('search', { title: 'Search' });
 });
 
 app.get('/error', function(req, res, next) {
