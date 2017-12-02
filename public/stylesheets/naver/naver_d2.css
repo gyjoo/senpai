@@ -38,7 +38,7 @@ html,body{height:100%}
 */
 #header .main_lnb{position:fixed;top:0;width:100%;background-color:#fff;border-top:1px solid #32cda0;border-bottom:1px solid #d6d6d6;z-index:1000}
 .main_lnb .header_sec{position:relative;overflow:hidden;width:100%;max-width:1280px;margin:0 auto;font-family:Avenir,'Lato',"애플 SD 산돌고딕 Neo","Apple SD Gothic Neo","나눔바른고딕",NanumBarunGothic,"나눔고딕",NanumGothic,"맑은 고딕","Malgun Gothic","돋움",dotum,AppleGothic,sans-serif}
-.main_lnb .header_sec h1{position:absolute;left:0;top:20px}
+.main_lnb .header_sec h1{position:absolute;left:0;top:15px}
 .main_lnb .header_sec .inner_sec{position:relative;max-width:1280px;height:66px;margin:0 40px}
 .main_lnb .header_sec .lnb .lnb_top_logo{display:block;width:120px;height:27px;background:url() 0 0 no-repeat;background-size:120px 27px}
 .main_lnb .header_sec .lnb{overflow:hidden;margin-left:170px}
@@ -146,7 +146,7 @@ html,body{height:100%}
 .bg_source_sec,
 .bg_sourceup_sec,
 .bg_about_sec{position:relative;height:150px;width:100%}
-.bg_ask_sec .ask_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_news_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#3A9F5B;background-repeat:no-repeat}
+.bg_ask_sec .ask_area{position:relative;width:100%;height:219px;overflow:hidden;margin:0 auto;background-image:url(../img/app/hackathon/ask_new/ask_new_banner.png);background-size:100% 100%;background-position:50% 0;background-color:#3A9F5B;background-repeat:no-repeat}
 .bg_source_sec .source_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_helloworld_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}
 .bg_sourceup_sec .sourceup_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_helloworld_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}
 .bg_about_sec .about_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_about_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#0E7FC5;background-repeat:no-repeat}
