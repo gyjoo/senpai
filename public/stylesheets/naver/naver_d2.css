@@ -64,7 +64,7 @@ html,body{height:100%}
 /* 메인 페이지 spot영역 */
 .bg_img_sec{position:relative;height:370px;width:100%}
 .bg_img_sec .img_area{position:relative;width:100%;background:#271d19;height:370px;overflow:hidden;margin:0 auto}
-.bg_img_sec .img_area .img_sec{position:relative; overflow:hidden; width:100%;max-width:1100px;height:370px;margin:0 auto}
+.bg_img_sec .img_area .img_sec{position:relative; overflow:hidden; width:100%;height:370px;margin:0 auto}
 .bg_img_sec .img_area .img_sec .big_spot_img{position:absolute;top:0;left:50%;width:1100px;height:370px;margin-left:-550px}
 .bg_img_sec .img_area .img_sec .big_title{position:relative;margin-top:170px;font-size:30px;color:#fff;width:100%;max-width:1100px;text-align:center;z-index:1}
 .bg_img_sec .img_area .img_sec .big_title a{color:#fff;text-decoration:none}
@@ -121,6 +121,8 @@ html,body{height:100%}
 .bg_about_sec{position:relative;height:150px;width:100%}
 .bg_news_sec .news_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_news_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#3A9F5B;background-repeat:no-repeat}
 .bg_hworld_sec .hworld_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_helloworld_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}
+.main_bg {position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_picture.png);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}
+
 .bg_about_sec .about_area{position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(../img/app/bg_about_spot.jpg);background-size:100% 100%;background-position:50% 0;background-color:#0E7FC5;background-repeat:no-repeat}
 .bg_news_sec .news_area .news_sec,
 .bg_hworld_sec .hworld_area .hworld_sec,
