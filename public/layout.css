@@ -3,7 +3,7 @@
 
 .con_area .contents .post_article.center{position:relative;max-width:100%;overflow:hidden;margin:0px 240px 30px 240px}
 .con_area .contents .post_article.right{position:relative;max-width:100%;overflow:hidden;margin:0px 0px 30px 240px}
-
+.con_area .contents .write_from{position:relative;max-width:100%;overflow:hidden;margin:0px 0px 30px 240px}
 
 .con_area .contents .sidebar li a{font-size: 16px;font-weight: 200}
 .con_area .contents .sidebar li a.bold{font-size: 16px; font-weight: 700;color: black}
