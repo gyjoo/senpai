@@ -1,30 +1,19 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-
-// ethereum contracts
-// var truffle = require('./app/javascripts/app.js');
-
-// var Senpai = artifacts.require("./Senpai.sol");
 /*
-var Web3 = require('web3');
+----------------------------------------------------------------------
 
-if (typeof web3 !== 'undefined') {
-  web3 = new Web3(web3.currentProvider);
-} else {
-  // set the provider you want from Web3.providers
-  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-}
-var web3 = new Web3(App.web3Provider);
+    VIEWS & ROUTINGS
 
-console.log(App);
-*/
+----------------------------------------------------------------------
+ */
+ var express = require('express');
+ var path = require('path');
+ var favicon = require('serve-favicon');
+ var logger = require('morgan');
+ var cookieParser = require('cookie-parser');
+ var bodyParser = require('body-parser');
+
+ var index = require('./routes/index');
+ var users = require('./routes/users');
 
 var app = express();
 app.locals.pretty = true;
@@ -122,4 +111,5 @@ module.exports = app;
 
 app.listen(3001, function(){
     console.log('Connected 3001 port!');
+
 });

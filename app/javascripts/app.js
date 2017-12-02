@@ -17,7 +17,7 @@ var MetaCoin = contract(metacoin_artifacts);
 var accounts;
 var account;
 
-window.App = {
+window.App = {  
   start: function() {
     var self = this;
 
