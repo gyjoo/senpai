@@ -16,6 +16,7 @@
 // var metacoin_artifacts = require('./build/contracts/MetaCoin.json');
 // var MetaCoin = contract(metacoin_artifacts);
 
+
 /*
 ----------------------------------------------------------------------
 
