@@ -8,6 +8,22 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// ethereum contracts
+// var Senpai = artifacts.require("./Senpai.sol");
+/*
+var Web3 = require('web3');
+
+if (typeof web3 !== 'undefined') {
+  web3 = new Web3(web3.currentProvider);
+} else {
+  // set the provider you want from Web3.providers
+  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+}
+var web3 = new Web3(App.web3Provider);
+
+console.log(App);
+*/
+
 var app = express();
 app.locals.pretty = true;
 
@@ -26,16 +42,50 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 
+// 소스 게시하기
 app.get('/form', function(req,res){
   res.render('form');
 });
+/*
+app.post('/form_receiver', function(req,res){
+  contract('Senpai', function(accounts) {
+    it("should get title", function() {
+      return Senpai.deployed().then(function(instance) {
+        instance.create_product("title", "url", 1,
+      		1, 1, 1, "CSED232", "한글");
+      });
+    });
+  });
+  res.send('소스 등록이 완료되었습니다.');
+});
+*/
 
 app.get('/naver', function(req, res, next) {
   res.render('naver', { title: 'Naver' });
 });
 
+app.get('/source_upload', function(req, res, next) {
+  res.render('source_upload', { title: 'source_upload' });
+});
+
+app.get('/source', function(req, res, next) {
+  res.render('source', { title: 'source' });
+});
+
+app.get('/ask', function(req, res, next) {
+  res.render('ask', { title: 'ask' });
+});
+
+app.get('/ask_new', function(req, res, next) {
+  res.render('ask_new', { title: 'ask_new' });
+});
+
 app.get('/search/', function(req, res, next) {
   res.redirect('search', { title: 'Search' });
+});
+
+app.get('/error/', function(req, res, next) {
+  res.redirect('error', { title: 'error' });
 });
 
 // catch 404 and forward to error handler
