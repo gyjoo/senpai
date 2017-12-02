@@ -37,6 +37,7 @@
     "morgan": "^1.9.0",
     "pug": "^2.0.0-beta11",
     "serve-favicon": "^2.4.5",
+    "solc": "^0.4.19",
     "style-loader": "^0.13.1",
     "supervisor": "^0.12.0",
     "truffle": "^4.0.1",

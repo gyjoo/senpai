@@ -1,6 +1,23 @@
 /*
 ----------------------------------------------------------------------
 
+    ETHEREUM CONTRACTS
+
+----------------------------------------------------------------------
+ */
+// // Declarations
+// var Web3 = require('web3');
+// var contract = require('truffle-contract');
+//
+// // MetaCoin is our usable abstraction, which we'll use through the code below.
+// var metacoin_artifacts = require('./build/contracts/MetaCoin.json');
+// var MetaCoin = contract(metacoin_artifacts);
+
+// var SenpaiArtifact = require('./build/contracts/Senpai.json');
+
+/*
+----------------------------------------------------------------------
+
     VIEWS & ROUTINGS
 
 ----------------------------------------------------------------------
@@ -110,6 +127,28 @@ app.use(function(err, req, res, next) {
 
 
 module.exports = app;
+module.exports.rpc = {
+  host: "localhost",
+  port: 8545
+};
+
+// module.exports.metacoin_artifacts = metacoin_artifacts;
+
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
+//
+// module.exports.module.loaders = {
+//       { test: /\.json$/, use: 'json-loader' },
+//       {
+//         test: /\.js$/,
+//         exclude: /(node_modules|bower_components)/,
+//         loader: 'babel-loader',
+//         query: {
+//           presets: ['es2015'],
+//           plugins: ['transform-runtime']
+//         }
+//       }
+// }
+
 
 app.listen(3001, function(){
     console.log('Connected 3001 port!');
