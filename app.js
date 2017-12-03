@@ -102,6 +102,10 @@ app.get('/truffle_test', function(req, res, next) {
   res.render('truffle_test', { title: 'truffle_test' });
 });
 
+app.get('/truffle_senpai_test', function(req, res, next) {
+  res.render('truffle_senpai_test', { title: 'truffle_senpai_test' });
+});
+
 app.get('/source_upload', function(req, res, next) {
   res.render('source_upload', { title: 'source_upload' });
 });

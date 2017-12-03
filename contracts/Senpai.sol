@@ -32,9 +32,7 @@ contract Senpai {
 	function getDepartment(uint idx) public view returns(uint){ return products[idx].department; }
 	function getCourseId(uint idx) public view returns(string){ return products[idx].course_id; }
 	function getDescription(uint idx) public view returns(string){ return products[idx].description; }
-	function getAAA(uint idx) public view returns (uint) {
-		return products[idx].price;
-	}
+
 
 
 	struct user{
@@ -114,6 +112,13 @@ contract Senpai {
 				users[buyer].purchased_products[uid] = pid;
 				products[pid].download_num++;
 			}
+
+			function getProductsTotal() public view returns(uint){
+				uint a = 3;
+				/*return products_total;*/
+				return a;
+			}
+
 }
 
 

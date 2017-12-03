@@ -3,14 +3,18 @@ var Senpai = artifacts.require("./Senpai.sol");
 contract('Senpai', function(accounts) {
   it("should get title", function() {
     return Senpai.deployed().then(function(instance) {
-      instance.create_product("title", "url", 1,
+      instance.create_product("홍기ㅈ뱆ㅇ뱆러뱢ㅎ버쟈헙", "url", 1,
     		1, 1, 1, "CSED232", "한글");
       // instance.purchase_product(1).then(function(value){
       //   console.log(value);
       // });
+      instance.getTitle.call(0).then(function(value){
+        console.log(value);
+      });
+      console.log('shit!!!!!');
+
       /*
       instance.purchase_product(0);
-      console.log('shit!!!!!');
 
       instance.getDownloadNum(0).then(function(value){
         console.log(value);

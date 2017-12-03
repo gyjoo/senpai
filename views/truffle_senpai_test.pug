@@ -2,9 +2,9 @@ extends ./part/layout.pug
 block content
   h1 Senpai
   br
-  span(id='balance' class='balance') META
+  span(id='balance' class='balance') 현재 이더리움 잔고
   br
-  button(id='start', onclick='App.start()') refersh
+  button(id='start', onclick='App.start()') Refresh
   br
   label(for='amount') Amount
   br
@@ -14,12 +14,18 @@ block content
   br
   input(type='text', id='receiver', placeholder='e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae')
   br
-  button(id='send', onclick='App.sendCoin()') Send MetaCoin
+  button(id='send', onclick='App.createProduct()') Create Product
+  br
+  button(id='purchase', onclick='App.purchaseProduct()') Purchase Product
+  br
+  button(id='getInfo', onclick='App.getProductsInfo()') Get Info
   br
   span(id='status')
+  span(id='info')
+
 
 block js
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="web3.min.js"></script>
   <script type="text/javascript" src="truffle-contract.js"></script>
-  <script type="text/javascript" src="truffle_test.js"></script>
+  <script type="text/javascript" src="senpai_hazimae.js"></script>
