@@ -20,8 +20,11 @@ $(document).ready(function() {
   })
   $('button#refresh').click( function() {
     // console.log(App);
-    App.getProductsInfo(function(products_info) {
+    // App.getProductsTotal(function(products_total){
+    //       console.log('전체 글 수'+products_total);
+    // });
 
+    App.getProductsInfo(function(products_info) {
 
       infos = products_info
       t = infos['0'];

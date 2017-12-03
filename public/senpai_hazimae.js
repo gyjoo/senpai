@@ -184,7 +184,35 @@ window.App = {
       // console.log(info);
       // alert(info);
       return info;
+    },
 
+    getProduct: function(info_cb) {
+      var self = this;
+      var info = {};
+      var i;
+
+      this.setStatus("Get product list... (please wait)");
+
+        Senpai.deployed().then(function(instance) {
+
+        instance.getTitle.call(i).then(function(value){
+          // console.log('제목' + value);
+          entry['title'] = value;
+        });
+
+      }).then(function() {
+        self.setStatus("Transaction complete!");
+        info_cb(info);
+        return info
+      }).catch(function(e) {
+        console.log(e);
+        self.setStatus("Error sending coin; see log.");
+      });
+
+      // document.getElementById("product_info").innerHTML = info;
+      // console.log(info);
+      // alert(info);
+      return info;
     }
 
 
