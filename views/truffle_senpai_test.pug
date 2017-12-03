@@ -14,7 +14,8 @@ block content
   br
   input(type='text', id='receiver', placeholder='e.g., 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae')
   br
-  button(id='send', onclick='App.createProduct()') Create Product
+  //- title, file_url, price,created_at, source_type, department, course_id,description
+  button(id='send', onclick='App.createProduct("서성욱", "호이", 1, 1, 1, 1, "CSED331", "한글")') Create Product
   br
   button(id='purchase', onclick='App.purchaseProduct()') Purchase Product
   br

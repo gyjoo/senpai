@@ -54,15 +54,18 @@ window.App = {
   },
 
 
-  createProduct: function() {
+  createProduct: function(title, file_url, price,
+		created_at, source_type, department, course_id,
+		description) {
     var self = this;
 
     this.setStatus("Initiating transaction... (please wait)");
 
     Senpai.deployed().then(function(instance) {
 
-      instance.create_product("title", "url", 1,
-        1, 1, 1, "CSED232", "한글").then(function(value){
+      instance.create_product(title, file_url, price,
+    		created_at, source_type, department, course_id,
+    		description).then(function(value){
           console.log(instance);
         }).catch(function(e) {
           // Handle the exception
