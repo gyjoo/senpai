@@ -104,6 +104,14 @@ app.post('/form_receiver', function(req,res){
   res.send('소스 등록이 완료되었습니다.');
 });
 */
+// 소스 게시하기
+//
+// router.get('/uploads/imen127.jpeg', function(req, res){
+//     // file download
+//     var path = req.params.path;
+//     res.download('/uploads/imen127.jpeg');
+//     console.log(path);
+// });
 
 app.get('/naver', function(req, res, next) {
   res.render('naver', { title: 'Naver' });
