@@ -43,6 +43,15 @@ router.get('/', function(req, res, next) {
   res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: sources});
 });
 
+router.get('/info', function(req, res, next) {
+  alert(req.query.info)
+  var sort = req.query.sort;
+  var keyword = req.query.keyword;
+  var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
+  res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: sources});
+});
+
+
 /*
 router.get('/search', function(req, res){
     // 글 검색하는 부분
@@ -83,7 +92,8 @@ router.post('/', upload.single('UploadFile'),function(req, res){
 
     // if(mode == 'add) {
     if (1==1) {
-      addBoard(addNewTitle, addNewContent, addNewSourceType, addNewClassNumber, upFile);
+      // addBoard(addNewTitle, addNewContent, addNewSourceType, addNewClassNumber, upFile);
+
       res.redirect('/source');
         // if (isSaved(upFile)) { // 파일이 제대로 업로드 되었는지 확인 후 디비에 저장시키게 됨
         //   console.log('#4-2');

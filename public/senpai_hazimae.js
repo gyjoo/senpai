@@ -22,7 +22,7 @@ window.App = {
   start: function() {
     var self = this;
 
-    alert(senpai_artifacts);
+    // alert(senpai_artifacts);
     // Bootstrap the abstraction for Use.
 
     Senpai.setProvider(web3.currentProvider);
@@ -63,7 +63,17 @@ window.App = {
       instance.create_product(title, file_url, price,
     		created_at, source_type, department, course_id,
     		description).then(function(value){
-          console.log(instance);
+          // console.log(instance);
+
+          // var total;
+          // instance.getProductsTotal.call().then(function(value){
+          //   total = value - 1;
+          //   console.log(total);
+          // });
+          instance.getTitle.call(total).then(function(value){
+            console.log('새 소스 추가 : ' + value);
+            console.log("ahahahaha");
+          });
         }).catch(function(e) {
           // Handle the exception
         });
@@ -103,7 +113,7 @@ window.App = {
   //   console.log(value);
   // });
 
-    getProductsInfo: function() {
+    getProductsInfo: function(info_cb) {
       var self = this;
       var info = {};
       var i;
@@ -134,27 +144,27 @@ window.App = {
           var entry = {};
 
               instance.getTitle.call(i).then(function(value){
-                console.log('제목' + value);
+                // console.log('제목' + value);
                 entry['title'] = value;
               });
               instance.getDescription.call(i).then(function(value){
-                console.log('내용' + value);
+                // console.log('내용' + value);
                 entry['description'] = value;
               });
               instance.getDepartment.call(i).then(function(value){
-                console.log('학과' + value);
+                // console.log('학과' + value);
                 entry['department'] = value;
               });
               instance.getDownloadNum.call(i).then(function(value){
-                console.log('다운 수' + value);
+                // console.log('다운 수' + value);
                 entry['download_num'] = value;
               });
               instance.getCourseId.call(i).then(function(value){
-                console.log('학수번호' + value);
+                // console.log('학수번호' + value);
                 entry['courseId'] = value;
               });
               instance.getCreatedAt.call(i).then(function(value){
-                console.log('시간' + value);
+                // console.log('시간' + value);
                 entry['created_at'] = value;
               });
 
@@ -163,85 +173,19 @@ window.App = {
         }
       }).then(function() {
         self.setStatus("Transaction complete!");
+        info_cb(info);
+        return info
       }).catch(function(e) {
         console.log(e);
         self.setStatus("Error sending coin; see log.");
       });
 
       // document.getElementById("product_info").innerHTML = info;
-
-      console.log(info);
+      // console.log(info);
+      // alert(info);
       return info;
 
     }
-
-  //
-  // createProductBundleTest: function() {
-  //   var self = this;
-  //
-  //   this.setStatus("Initiating transaction... (please wait)");
-  //
-  //   Senpai.deployed().then(function(instance) {
-  //
-  //     while (i < 50)
-  //     instance.create_product("title", "url", i,
-  //       1, 1, 1, "CSED232", "한글").then(function(value){
-  //         console.log(instance);
-  //       });
-  //       const products_total = instance.products_total;
-  //       console.log(products_total);
-  //
-  //       }).catch(function(e) {
-  //         // console.log(instance);
-  //       });
-  //       // console.log(instance);
-  //
-  //     // instance.purchase_product(1).then(function(value){
-  //     //   console.log(value);
-  //     // });
-  //
-  //     // var _title = instance.getTitle.call();
-  //     return true;
-  //   }).then(function() {
-  //     self.setStatus("Transaction complete!");
-  //     // self.refreshBalance();
-  //   }).catch(function(e) {
-  //     console.log(e);
-  //     self.setStatus("Error sending coin; see log.");
-  //   });
-  // },
-  // sortingByLike: function() {
-  //   var self = this;
-  //
-  //   this.setStatus("Sorting by likes... (please wait)");
-  //
-  //   Senpai.deployed().then(function(instance) {
-  //
-  //     instance.purchase_product(1).then(function(value){
-  //         console.log(value);
-  //         var _title = instance.getTitle.call();
-  //         //   console.log(value);
-  //         // });
-  //         // console.log(_title);
-  //
-  //       }).catch(function(e) {
-  //         // console.log(instance);
-  //       });
-  //       // console.log(instance);
-  //
-  //     // instance.purchase_product(1).then(function(value){
-  //     //   console.log(value);
-  //     // });
-  //
-  //     // var _title = instance.getTitle.call();
-  //     return true;
-  //   }).then(function() {
-  //     self.setStatus("Sorting Complete!");
-  //   }).catch(function(e) {
-  //     console.log(e);
-  //     self.setStatus("Error sending coin; see log.");
-  //   });
-  // }
 
 
 };
@@ -258,40 +202,6 @@ window.addEventListener('load', function() {
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:9545"));
   }
+
+    App.start();
 });
-
-
-
-
-
-
-/*
-
-  2. 검색
-    - 학수번호
-    - 제목
-  3. 업로드
-    - createProduct
-  4. 로그인
-    - currentProvider
-    1. Sorting
-      - 좋아요 순
-      - 다운로드 순
-      - 최근 순
-*/
-
-
-// instance.getTitle.call(0).then(function(value){
-//   console.log(value);
-// });
-// instance.getDescription.call(0).then(function(value){
-//   console.log(value);
-// });
-// instance.getDepartment.call(0).then(function(value){
-//   console.log(value);
-// });
-// instance.getDownloadNum.call(0).then(function(value){
-//   console.log(value);
-// });
-// instance.getCourseId.call(0).then(function(value){
-//   console.log(value);
