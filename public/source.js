@@ -18,6 +18,26 @@ $(document).ready(function() {
     console.log($('span.keyword_text').text())
     $(location).attr('href', 'http://localhost:3001/source?keyword='+$('span.keyword_text').text()+'&sort=download')
   })
+  $('button#refresh').click( function() {
+    // console.log(App);
+    App.getProductsInfo(function(products_info) {
+
+
+      infos = products_info
+      t = infos['0'];
+      for (i=0; i<10; i++) {
+        console.log('ka', infos[i]);
+        $(".post_txt")[i].innerText = infos[i].description;
+        $(".post_title")[i].innerText = infos[i].description;
+      }
+      // $(location).attr('href', 'http://localhost:3001/source?info='+products_info['0'])
+    });
+    // console.log(products[0]);
+    // alert(products);
+    // $(location).attr('href', 'http://localhost:3001/source?sources='+products)
+    // console.log($('span.keyword_text').text())
+    // $(location).attr('href', 'http://localhost:3001/source?keyword='+$('span.keyword_text').text()+'&sort=download')
+  })
 
   $('li.page_button').removeClass('on');
   $('li.page_button.source').addClass('on');

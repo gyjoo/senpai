@@ -1,7 +1,9 @@
 extends ./part/layout.pug
 block content
-  button(id='start', onclick='App.start()') Refresh
+  button(id='start', onclick='App.start()') Start
   button(id='send', onclick='App.createProduct("서성욱", "호이", 1, 1, 1, 1, "CSED331", "한글")') Create Product
+  button(id='refresh') Refresh
+  //- button(id='start', onclick='App.getProductsInfo()') Refresh
   <div class="bg_source_sec"> <!-- ASK.png 에서 좌측 sidebar에 위치한 ASK 가 이 항목임 -->
     <div class="source_area">
       <div class="source_sec">
@@ -32,7 +34,6 @@ block content
       </div>
     </div>
   </div>
-
   <div id="container">
     <div class="con_area">
       <div class="contents">
@@ -40,9 +41,11 @@ block content
            include ./part/sort_sidebar.pug
         </div>
 
+        <div class="source_items">
         each source in sources
           include ./part/center_source_item.pug
-
+        </div>
+        
         <div class="paginate_box">
           <div class="paginate">
             <span></span>

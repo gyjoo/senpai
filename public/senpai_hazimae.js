@@ -22,7 +22,7 @@ window.App = {
   start: function() {
     var self = this;
 
-    alert(senpai_artifacts);
+    // alert(senpai_artifacts);
     // Bootstrap the abstraction for Use.
 
     Senpai.setProvider(web3.currentProvider);
@@ -103,7 +103,7 @@ window.App = {
   //   console.log(value);
   // });
 
-    getProductsInfo: function() {
+    getProductsInfo: function(info_cb) {
       var self = this;
       var info = {};
       var i;
@@ -134,27 +134,27 @@ window.App = {
           var entry = {};
 
               instance.getTitle.call(i).then(function(value){
-                console.log('제목' + value);
+                // console.log('제목' + value);
                 entry['title'] = value;
               });
               instance.getDescription.call(i).then(function(value){
-                console.log('내용' + value);
+                // console.log('내용' + value);
                 entry['description'] = value;
               });
               instance.getDepartment.call(i).then(function(value){
-                console.log('학과' + value);
+                // console.log('학과' + value);
                 entry['department'] = value;
               });
               instance.getDownloadNum.call(i).then(function(value){
-                console.log('다운 수' + value);
+                // console.log('다운 수' + value);
                 entry['download_num'] = value;
               });
               instance.getCourseId.call(i).then(function(value){
-                console.log('학수번호' + value);
+                // console.log('학수번호' + value);
                 entry['courseId'] = value;
               });
               instance.getCreatedAt.call(i).then(function(value){
-                console.log('시간' + value);
+                // console.log('시간' + value);
                 entry['created_at'] = value;
               });
 
@@ -163,14 +163,16 @@ window.App = {
         }
       }).then(function() {
         self.setStatus("Transaction complete!");
+        info_cb(info);
+        return info
       }).catch(function(e) {
         console.log(e);
         self.setStatus("Error sending coin; see log.");
       });
 
       // document.getElementById("product_info").innerHTML = info;
-
-      console.log(info);
+      // console.log(info);
+      // alert(info);
       return info;
 
     }
