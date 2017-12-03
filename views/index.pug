@@ -2,12 +2,12 @@ extends ./part/layout.pug
 block content
   <div class="bg_img_sec">
     <div class="img_area" style="background: #000000;">
-      <div class="img_sec">
+      <div class="img_sec main_bg">
         <p class="big_title">
           <a href="" target="_blank"></a>
         </p>
-        <div class="slogan"><p>학습에 필요한 자료들을 민주적으로 공유합니다.</p></div> <!-- Slogan 수정 요망 -->
-
+        <div class="slogan"><h2>"소스냠냠"</h2><p>학습에 필요한 자료들을 민주적으로 공유합니다.</p></div> <!-- Slogan 수정 요망 -->
+        
         <div class="select_search">
           <ul> <!-- input="Checkbox" 사용해서 각 항목 앞에 동그라미 체크박스 하나씩 넣어야 함 (중복 선택하게 할 건지 아니면 하나만 선택하게 할 건지 결정해야 함) -->
             <li class="select_ask"><p>ASK</p></li> <!-- 이 class 위치 조정은 naver_d2.css 의 .select_ask 항목에서 left:% 의 % 값 변경 -->
@@ -28,8 +28,8 @@ block content
     <div class="pc_search_input">
       <fieldset>
         <legend>검색</legend>
-        <input type="text" placeholder="Source 검색하기" name="" class="search_area">
-        <input type="submit" value="" class="btn_search">
+        <input type="text" placeholder="Find Any Class Material, Exam or Ask your question." name="" class="search_area_center">
+        <input type="submit" value="" class="btn_search_center">
       </fieldset>
     </div>
   </div>

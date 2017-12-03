@@ -36,6 +36,10 @@
  var index = require('./routes/index');
  var users = require('./routes/users');
  var source = require('./routes/source');
+ var fs = require('fs');
+
+// process.env.PWD = process.cwd()
+// app.use(express.static(process.env.PWD + '/public'));
 
 // DB
 var db = mongoose.connection;
@@ -71,10 +75,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'stylesheets/hackathon/main')));
 
 app.use('/', index);
 app.use('/source', source);
 app.use('/users', users);
+
 
 // 소스 게시하기
 app.get('/form', function(req,res){
@@ -126,6 +132,14 @@ app.get('/error', function(req, res, next) {
   res.redirect('error', { title: 'error' });
 });
 
+app.get('/img', function (request, response) {
+  // res.render('search', { title: 'Search' });
+  fs.readFile('/public/hackathon/main/web_0000s_0005_background-picture.jpg', function (error, data) {
+      response.writeHead(200, { 'content-type': 'text/html' });
+      response.end(data);
+  });
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   console.log(req)
@@ -172,6 +186,7 @@ module.exports.rpc = {
 //         }
 //       }
 // }
+
 
 
 app.listen(3001, function(){
