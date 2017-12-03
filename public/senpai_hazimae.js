@@ -7,12 +7,6 @@
 ----------------------------------------------------------------------
  */
 
-$.getScript( "truffle-contract.js", function( data, textStatus, jqxhr ) {
-  console.log( textStatus ); // Success
-  console.log( jqxhr.status ); // 200
-  console.log( "Load was performed." );
-});
-
 var senpai_artifacts;
 var Senpai;
 
@@ -28,8 +22,9 @@ window.App = {
   start: function() {
     var self = this;
 
-    console.log(senpai_artifacts);
+    alert(senpai_artifacts);
     // Bootstrap the abstraction for Use.
+
     Senpai.setProvider(web3.currentProvider);
 
     // Get the initial account balance so it can be displayed.
@@ -50,8 +45,9 @@ window.App = {
   },
 
   setStatus: function(message) {
-    var status = document.getElementById("status");
-    status.innerHTML = message;
+    console.log(message);
+    // var status = document.getElementById("status");
+    // status.innerHTML = message;
   },
 
 
