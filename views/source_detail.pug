@@ -8,14 +8,22 @@ block content
                  <h1 class="posting_tit">#{source.title}</h1>
                  <dl class="post_info">
                     <dt><i class="xe-time-o"><span class="blind">등록일</span></i></dt>
-                    <dd>2017.10.23</dd>
+                    dd=source.date
                     <dt><span class="blind">|</span></dt>
                     <dd><span class="line_bar">|</span></dd>
                     <dt><i class="xe-eye"><span class="blind">코멘트</span></i></dt>
-                    <dd>1</dd>
+                    dd=source.count
                  </dl>
-                 <div class="con_view">
-                 #{source.contents}
+                 div(class="con_view")
+                   span= "학수번호 : "+source.classNumber
+                   br
+                   span= "가격 : "+source.price+" ETH"
+                   br
+                   span= "작성자 : "+source.writer
+                   br
+                   span= "소스 종류 : "+source.sourceType
+                   p
+                   div= source.contents
                  </div>
                   a(id='purchase', onclick='App.purchaseProduct("3")', download="imen127", href="/imen127.jpeg", class="buttonDownload") Download
               </div>
