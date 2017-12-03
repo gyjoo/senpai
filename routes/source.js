@@ -40,9 +40,11 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   var sort = req.query.sort;
   var keyword = req.query.keyword;
-  // alert(Source.find())
+  // alert(req.query);
 
-  Source.find().sort({date:-1}).exec(function(err, searchContents){
+  var searchCondition = {$regex:keyword};
+
+  Source.find({$or:[{title:searchCondition},{contents:searchCondition},{writer:searchCondition}]}).sort({date:-1}).exec(function(err, searchContents){
       if(err) throw err;
       // res.render('board', {title: "Board", contents: searchContents});
       console.log(searchContents);
