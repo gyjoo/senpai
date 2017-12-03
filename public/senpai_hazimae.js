@@ -123,7 +123,7 @@ window.App = {
           //   console.log(value);
           // });
 
-          // i = 3;
+          i = 10;
 
           // instance.getProductsTotal().then(function(value){
           //   i = value;
@@ -134,27 +134,27 @@ window.App = {
           var entry = {};
 
               instance.getTitle.call(i).then(function(value){
-                console.log(value);
+                console.log('제목' + value);
                 entry['title'] = value;
               });
               instance.getDescription.call(i).then(function(value){
-                console.log(value);
+                console.log('내용' + value);
                 entry['description'] = value;
               });
               instance.getDepartment.call(i).then(function(value){
-                console.log(value);
+                console.log('학과' + value);
                 entry['department'] = value;
               });
               instance.getDownloadNum.call(i).then(function(value){
-                console.log(value);
+                console.log('다운 수' + value);
                 entry['download_num'] = value;
               });
               instance.getCourseId.call(i).then(function(value){
-                console.log(value);
+                console.log('학수번호' + value);
                 entry['courseId'] = value;
               });
               instance.getCreatedAt.call(i).then(function(value){
-                console.log(value);
+                console.log('시간' + value);
                 entry['created_time'] = value;
               });
 

@@ -113,9 +113,8 @@ contract Senpai {
 				products[pid].download_num++;
 			}
 
-			function getProductsTotal() public view returns(uint){
-				uint a = 3;
-				/*return products_total;*/
+			function getProductsTotal() public view returns(uint a){
+				a = products_total;
 				return a;
 			}
 
