@@ -121,6 +121,16 @@ app.get('/source_upload', function(req, res, next) {
   res.render('source_upload', { title: 'source_upload' });
 });
 
+app.get('/source_upload', function(req, res, next) {
+  res.render('source_upload', { title: 'source_upload' });
+});
+
+app.get('/source_detail', function(req, res, next) {
+  var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
+  res.render('source_detail', { title: 'source_detail', source: source });
+});
+
+
 app.get('/ask', function(req, res, next) {
   res.render('ask', { title: 'ask' });
 });
