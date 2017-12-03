@@ -38,6 +38,9 @@
  var source = require('./routes/source');
  var fs = require('fs');
 
+ var multer = require('multer'); // express에 multer모듈 적용 (for 파일업로드)
+ var upload = multer({ dest: 'uploads/' })
+
 // process.env.PWD = process.cwd()
 // app.use(express.static(process.env.PWD + '/public'));
 
@@ -75,7 +78,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-// app.use(express.static(path.join(__dirname, 'stylesheets/hackathon/main')));
+// app.use(express.static(path.join(__dirname, 'uploads')));
+// app.use('/uploads', express.static('uploads'));
+
 
 app.use('/', index);
 app.use('/source', source);
@@ -132,12 +137,9 @@ app.get('/error', function(req, res, next) {
   res.redirect('error', { title: 'error' });
 });
 
-app.get('/img', function (request, response) {
-  // res.render('search', { title: 'Search' });
-  fs.readFile('/public/hackathon/main/web_0000s_0005_background-picture.jpg', function (error, data) {
-      response.writeHead(200, { 'content-type': 'text/html' });
-      response.end(data);
-  });
+app.post('/upload', upload.single('userfile'), function(req, res){
+  res.send('Uploaded! : '+req.file); // object를 리턴함
+  console.log(req.file); // 콘솔(터미널)을 통해서 req.file Object 내용 확인 가능.
 });
 
 // catch 404 and forward to error handler

@@ -1,9 +1,10 @@
 var express = require('express');
-var BoardContents = require('../model/sourceSchema'); //db를 사용하기 위한 변수
+var Source = require('../model/sourceSchema'); //db를 사용하기 위한 변수
 var fs = require('fs');
 var multer = require('multer'); // 파일 저장을 위한  multer
-var upload = multer({dest:'./tmp/'}); // multer 경로 설정, 파일이 업로드 되면 먼저 임시 폴더로 가서 저장됨
+var upload = multer({dest:'uploads/'}); // multer 경로 설정, 파일이 업로드 되면 먼저 임시 폴더로 가서 저장됨
 var router = express.Router();
+
 
 /*
 router.get('/', function(req,res){
@@ -66,31 +67,43 @@ router.get('/search', function(req, res){
 });
 */
 
-router.post('/', upload.array('UploadFile'),function(req, res){
+router.post('/', upload.single('UploadFile'),function(req, res){
     //field name은 form의 input file의 name과 같아야함
     // 글 작성하고 submit하게 되면 저장이 되는 부분
     // 글 수정하고 submit하면 수정된 결과가 저장되는 부분
 
-    var mode = req.param('mode');
+    console.log('HAHAHA3');
+    console.log(req.body);
+    console.log(req.file);
+    // console.log(req.files);
+    // console.log(req.body['UploadFile']);
+    // console.log('HAHAHA2');
+
+    // var mode = req.params('mode');
 
     var addNewTitle = req.body.addContentSubject;
-    var addNewWriter = req.body.addContentWriter;
+    var addNewContent = req.body.addContents;
+    // var addNewWriter = req.body.addContentWriter;
     var addNewSourceType = req.body.addContentSourceType;
     var addNewClassNumber = req.body.addContentClassNumber;
-    var upFile = req.files; // 업로드 된 파일을 받아옴
+    var upFile = req.file; // 업로드 된 파일을 받아옴
+    // var modTitle = req.body.modContentSubject;
+    // var modContent = req.body.modContents;
+    // var modId = req.body.modId;
 
-    var modTitle = req.body.modContentSubject;
-    var modContent = req.body.modContents;
-    var modId = req.body.modId;
-
-    if(mode == 'add') {
-        if (isSaved(upFile)) { // 파일이 제대로 업로드 되었는지 확인 후 디비에 저장시키게 됨
-            addBoard(addNewTitle, addContentSourceType, addNewContent, addNewPassword, upFile);
-            res.redirect('/source');
-        } else {
-          console.log("파일이 저장되지 않았습니다!");
-        }
+    // if(mode == 'add) {
+    if (1==1) {
+      addBoard(addNewTitle, addNewContent, addNewSourceType, addNewClassNumber, upFile);
+      res.redirect('/source');
+        // if (isSaved(upFile)) { // 파일이 제대로 업로드 되었는지 확인 후 디비에 저장시키게 됨
+        //   console.log('#4-2');
+        //   addBoard(addNewTitle, addContentSourceType, addNewContent, addNewPassword, upFile);
+        //   res.redirect('/source');
+        // } else {
+        //   console.log("파일이 저장되지 않았습니다!");
+        // }
     } else {
+      console.log('#3-2');
         modBoard(modId, modTitle, modContent);
         res.redirect('/source');
     }
@@ -168,35 +181,39 @@ module.exports = router;
 
 function addBoard(title, content, sourceType, classNumber, upFile){
     var newContent = content.replace(/\r\n/gi, "\\r\\n");
-
+    console.log('#1');
     var source = new Source;
     source.title = title;
     source.contents = content;
     source.sourceType = sourceType;
-    source.password = password;
+    source.classNumber = classNumber;
 
     source.save(function (err) {
+      console.log('#3');
         if (err) throw err;
         Source.findOne({_id: source._id}, {_id: 1}, function (err, newBoardId) {
             if (err) throw err;
 
             if (upFile != null) {
-                var renaming = renameUploadFile(newBoardId.id, upFile);
+                // var renaming = renameUploadFile(newBoardId.id, upFile);
+                // console.log('renaming');
+                // console.log(renaming);
+                // for (var i = 0; i < upFile.length; i++) {
+                var newFileName = getDirname(1)+"uploads/"+getFileDate(new Date())+'_'+upFile.originalname
+                console.log(newFileName);
+                fs.rename(upFile.path, newFileName, function (err) {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                });
+                // }
 
-                for (var i = 0; i < upFile.length; i++) {
-                    fs.rename(renaming.tmpname[i], renaming.fsname[i], function (err) {
-                        if (err) {
-                            console.log(err);
-                            return;
-                        }
-                    });
-                }
-
-                for (var i = 0; i < upFile.length; i++) {
-                    Source.update({_id: newBoardId.id}, {$push: {fileUp: renaming.fullname[i]}}, function (err) {
-                        if (err) throw err;
-                    });
-                }
+                // for (var i = 0; i < upFile.length; i++) {
+                Source.update({_id: newBoardId.id}, {$push: {fileUp: newFileName}}, function (err) {
+                    if (err) throw err;
+                });
+                // }
             }
         });
     });
@@ -228,83 +245,101 @@ function addBoard(title, content, sourceType, classNumber, upFile){
 //         });
 //     });
 // }
-// function getFileDate(date) {
-//     var year = date.getFullYear();
-//     var month = date.getMonth()+1;
-//     var day = date.getDate();
-//     var hour = date.getHours();
-//     var min = date.getMinutes();
-//     var sec = date.getSeconds();
-//
-//     var fullDate = year+""+month+""+day+""+hour+""+min+""+sec;
-//
-//     return fullDate
-// }
-//
-// function renameUploadFile(itemId,upFile){
-//     // 업로드 할때 리네이밍 하는 곳!
-//     var renameForUpload = {};
-//     var newFile = upFile; // 새로 들어 온 파일
-//     var tmpPath = [];
-//     var tmpType = [];
-//     var index = [];
-//     var rename = [];
-//     var fileName = [];
-//     var fullName = []; // 다운로드 시 보여줄 이름 필요하니까 원래 이름까지 같이 저장하자!
-//     var fsName = [];
-//
-//     for (var i = 0; i < newFile.length; i++) {
-//         tmpPath[i] = newFile[i].path;
-//         tmpType[i] = newFile[i].mimetype.split('/')[1]; // 확장자 저장해주려고!
-//         index[i] = tmpPath[i].split('/').length;
-//         rename[i] = tmpPath[i].split('/')[index[i] - 1];
-//         fileName [i] = itemId + "_" + getFileDate(new Date()) + "_" + rename[i] + "." + tmpType[i]; // 파일 확장자 명까지 같이 가는 이름 "글아이디_날짜_파일명.확장자"
-//         fullName [i] = fileName[i] + ":" + newFile[i].originalname.split('.')[0]; // 원래 이름까지 같이 가는 이름 "글아이디_날짜_파일명.확장자:보여줄 이름"
-//         fsName [i] = getDirname(1)+"upload/"+fileName[i]; // fs.rename 용 이름 "./upload/글아이디_날짜_파일명.확장자"
-//     }
-//
-//     renameForUpload.tmpname = tmpPath;
-//     renameForUpload.filename = fileName;
-//     renameForUpload.fullname = fullName;
-//     renameForUpload.fsname = fsName;
-//
-//     return renameForUpload;
-// }
-//
-// function getDirname(num){
-//     //원하는 상위폴더까지 리턴해줌. 0은 현재 위치까지, 1은 그 상위.. 이런 식으로
-//     // 리네임과, 파일의 경로를 따오기 위해 필요함.
-//
-//     var order = num;
-//     var dirname = __dirname.split('/');
-//     var result = '';
-//
-//     for(var i=0;i<dirname.length-order;i++){
-//         result += dirname[i] + '/';
-//     }
-//
-//     return result;
-// }
-//
-// function isSaved(upFile) {
-//     // 파일 저장 여부 확인해서 제대로 저장되면 디비에 저장되는 방식
-//
-//     var savedFile = upFile;
-//     var count = 0;
-//
-//     if(savedFile != null) { // 파일 존재시 -> tmp폴더에 파일 저장여부 확인 -> 있으면 저장, 없으면 에러메시지
-//         for (var i = 0; i < savedFile.length; i++) {
-//             if(fs.statSync(getDirname(1) + savedFile[i].path).isFile()){ //fs 모듈을 사용해서 파일의 존재 여부를 확인한다.
-//                 count ++; // true인 결과 갯수 세서
-//             };
-//
-//         }
-//         if(count == savedFile.length){  //올린 파일 갯수랑 같으면 패스
-//             return true;
-//         }else{
-//             return false;
-//         }
-//     }else{ // 파일이 처음부터 없는 경우
-//         return true;
-//     }
-// }
+
+function getFileDate(date) {
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = date.getSeconds();
+
+    var fullDate = year+""+month+""+day+""+hour+""+min+""+sec;
+
+    return fullDate
+}
+
+function renameUploadFile(itemId, upFile){
+    // 업로드 할때 리네이밍 하는 곳!
+    var renameForUpload = {};
+    var newFile = upFile; // 새로 들어 온 파일
+    // var tmpPath = [];
+    // var tmpType = [];
+    // var index = [];
+    // var rename = [];
+    // var fileName = [];
+    // var fullName = []; // 다운로드 시 보여줄 이름 필요하니까 원래 이름까지 같이 저장하자!
+    // var fsName = [];
+
+    console.log('renameUploadFile');
+    console.log(itemId);
+    console.log(getFileDate(new Date()));
+    // console.log('upFile', upFile);
+
+    // for (var i = 0; i < newFile.length; i++) {
+    //     tmpPath[i] = newFile[i].path;
+    //     tmpType[i] = newFile[i].mimetype.split('/')[1]; // 확장자 저장해주려고!
+    //     index[i] = tmpPath[i].split('/').length;
+    //     rename[i] = tmpPath[i].split('/')[index[i] - 1];
+    //     fileName [i] = itemId + "_" + getFileDate(new Date()) + "_" + rename[i] + "." + tmpType[i]; // 파일 확장자 명까지 같이 가는 이름 "글아이디_날짜_파일명.확장자"
+    //     fullName [i] = fileName[i] + ":" + newFile[i].originalname.split('.')[0]; // 원래 이름까지 같이 가는 이름 "글아이디_날짜_파일명.확장자:보여줄 이름"
+    //     fsName [i] = getDirname(1)+"upload/"+fileName[i]; // fs.rename 용 이름 "./upload/글아이디_날짜_파일명.확장자"
+    // }
+
+    // renameForUpload.tmpname = 1;
+    var tmpPath = newFile.path;
+    var tmpType = newFile.mimetype.split('/')[1]; // 확장자 저장해주려고!
+    var index = tmpPath.split('/').length;
+    var rename = tmpPath.split('/')[index - 1];
+    renameForUpload.tmpname = tmpPath;
+    renameForUpload.fileName = itemId + "_" + getFileDate(new Date()) + "_" + rename + "." + tmpType; // 파일 확장자 명까지 같이 가는 이름 "글아이디_날짜_파일명.확장자"
+    renameForUpload.fullname = renameForUpload.fileName + ":" + newFile.originalname.split('.')[0]; // 원래 이름까지 같이 가는 이름 "글아이디_날짜_파일명.확장자:보여줄 이름"
+    renameForUpload.fsname = getDirname(1)+"upload/"+renameForUpload.fileName; // fs.rename 용 이름 "./upload/글아이디_날짜_파일명.확장자"
+
+    return renameForUpload;
+}
+
+function getDirname(num){
+    //원하는 상위폴더까지 리턴해줌. 0은 현재 위치까지, 1은 그 상위.. 이런 식으로
+    // 리네임과, 파일의 경로를 따오기 위해 필요함.
+
+    var order = num;
+    var dirname = __dirname.split('/');
+    var result = '';
+
+    for(var i=0;i<dirname.length-order;i++){
+        result += dirname[i] + '/';
+    }
+
+    return result;
+}
+
+/*
+function isSaved(upFile) {
+    // 파일 저장 여부 확인해서 제대로 저장되면 디비에 저장되는 방식
+
+    var savedFile = upFile;
+    var count = 0;
+
+    if(savedFile != null) { // 파일 존재시 -> tmp폴더에 파일 저장여부 확인 -> 있으면 저장, 없으면 에러메시지
+      console.log("##1");
+      console.log(savedFile);
+
+        for (var i = 0; i < savedFile.length; i++) {
+            if(fs.statSync(getDirname(1) + savedFile[i].path).isFile()){ //fs 모듈을 사용해서 파일의 존재 여부를 확인한다.
+                count ++; // true인 결과 갯수 세서
+            };
+
+        }
+        console.log(savedFile.length);
+
+        if(count == savedFile.length){  //올린 파일 갯수랑 같으면 패스
+            return true;
+        }else{
+            return false;
+        }
+    }else{ // 파일이 처음부터 없는 경우
+      console.log("##2")
+        return true;
+    }
+}*/

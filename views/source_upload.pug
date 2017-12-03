@@ -15,16 +15,14 @@ block content
     <div class="con_area">
       <div class="contents">
         <div class="write_form">
-          <form id="writeAction" action="/source" method="post">
+          <form id="writeAction" action="source" method="post" enctype="multipart/form-data">
               <input type="text" class="inputSubject" id="addContentSubject" name="addContentSubject" placeholder="Title">
-              //- <div class="writeThumbnail">
-              //-   <img src="/content/images/2017/11/D2Coding.png" width=100% height=100% alt="">
-              //- </div>
               <div class="writeDetail">
                 <input type="text" class="inputSourceType" id="addContentSourceType" name="addContentSourceType" placeholder="Source Type (ex: Exam)">
                 <input type="text" class="inputClassNumber" id="addContentClassNumber" name="addContentClassNumber" placeholder="Class Number (ex: CSED 101)">
               </div>
               <textarea class="textContents" id="addContents" name="addContents" rows="20" cols="80" placeholder="Detailed Explanation"></textarea>
+              <input type="file" class="inputFile" id="UploadFile" name="UploadFile">
           </form>
           <div id = "new" class="addBtngroup">
             //- <div><a onclick="cancelWriteForm('cancel');">CANCEL</a></div>

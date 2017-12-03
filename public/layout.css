@@ -34,6 +34,7 @@ a.top_logo {margin-left: 118px;margin-bottom: 5px; display:block;width:30px;heig
 
 .bg_img_sec .pc_search_input .btn_search_center{width:43px;height:34px;border:0;border-left:1px solid #E7E7E7;border-radius:3px;margin-left:16px;cursor:pointer;font-family:xeicon;background:#fff;color:#a5a5a5;font-size:21px;letter-spacing:-2px;transition:all 0.3s ease}
 
+span.ask_sub_title {font-size: 17px}
 
 /*.main_bg {position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(stylesheets/hackathon/main/web_0000s_0005_background-picture.jpg);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}*/
 /*.main_bg {position:relative;width:100%;height:150px;overflow:hidden;margin:0 auto;background-image:url(stylesheets/hackathon/main/web_0000s_0005_background-picture.jpg);background-size:100% 100%;background-position:50% 0;background-color:#513B7C;background-repeat:no-repeat}*/

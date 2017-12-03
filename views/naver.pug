@@ -1,11 +1,19 @@
-extends ./part/layout.pug
-block content
-  <div id="container">
-    <div class="con_area">
-      <div class="contents">
-        - var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
-        each source in sources
-          include ./part/source_item.pug
-      </div>
-    </div>
-  </div>
+//- extends ./part/layout.pug
+//- block content
+//-   <div id="container">
+//-     <div class="con_area">
+//-       <div class="contents">
+//-         - var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
+//-         each source in sources
+//-           include ./part/source_item.pug
+//-       </div>
+//-     </div>
+//-   </div>
+doctype html
+html
+  head
+    meta(charset='utf-8')
+  body
+    form(action='upload' method='post' enctype="multipart/form-data")
+      input(type='file' name='userfile')
+      input(type='submit')
