@@ -14,6 +14,14 @@ block content
                     <dt><i class="xe-eye"><span class="blind">코멘트</span></i></dt>
                     dd=source.count
                  </dl>
+                 - var a = "시험 기출문제"
+                 case source.sourceType
+                  when 0
+                    a = "깜지"
+                  when 1
+                    a = "시험 기출문제"
+                  when 2
+                    a = "참고자료"
                  div(class="con_view")
                    span= "학수번호 : "+source.classNumber
                    br
@@ -21,7 +29,7 @@ block content
                    br
                    span= "작성자 : "+source.writer
                    br
-                   span= "소스 종류 : "+source.sourceType
+                   span= "소스 종류 : "+a
                    p
                    div= source.contents
                  </div>
