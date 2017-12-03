@@ -83,7 +83,8 @@ router.post('/', upload.single('UploadFile'),function(req, res){
 
     // if(mode == 'add) {
     if (1==1) {
-      addBoard(addNewTitle, addNewContent, addNewSourceType, addNewClassNumber, upFile);
+      // addBoard(addNewTitle, addNewContent, addNewSourceType, addNewClassNumber, upFile);
+
       res.redirect('/source');
         // if (isSaved(upFile)) { // 파일이 제대로 업로드 되었는지 확인 후 디비에 저장시키게 됨
         //   console.log('#4-2');
