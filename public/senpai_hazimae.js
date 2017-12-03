@@ -79,15 +79,15 @@ window.App = {
     });
   },
 
-  purchaseProduct: function() {
+  purchaseProduct: function(pid) {
     var self = this;
 
     this.setStatus("Initiating transaction... (please wait)");
 
     Senpai.deployed().then(function(instance) {
 
-      instance.purchase_product(1).then(function(value){
-          var _title = instance.getTitle.call(0).then(function(value){
+      instance.purchase_product(pid).then(function(value){
+          var _title = instance.getTitle.call(pid).then(function(value){
             console.log(value);
           });
         }).catch(function(e) {
@@ -158,7 +158,7 @@ window.App = {
               });
               instance.getCreatedAt.call(i).then(function(value){
                 console.log('시간' + value);
-                entry['created_time'] = value;
+                entry['created_at'] = value;
               });
 
               info[i] = entry;

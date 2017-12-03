@@ -17,7 +17,8 @@ block content
   //- title, file_url, price,created_at, source_type, department, course_id,description
   button(id='send', onclick='App.createProduct("서성욱", "호이", 1, 1, 1, 1, "CSED331", "한글")') Create Product
   br
-  button(id='purchase', onclick='App.purchaseProduct()') Purchase Product
+  //- product id
+  button(id='purchase', onclick='App.purchaseProduct("0")') Purchase Product
   br
   button(id='getInfo', onclick='App.getProductsInfo()') Get Info
   br
@@ -29,4 +30,4 @@ block js
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="web3.min.js"></script>
   <script type="text/javascript" src="truffle-contract.js"></script>
-  <script type="text/javascript" src="senpai_hazimae.js"></script>
+  <script type="text/javascript" src="truffle_senpai_test.js"></script>
