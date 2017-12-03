@@ -28,6 +28,7 @@ window.App = {
   start: function() {
     var self = this;
 
+    console.log(senpai_artifacts);
     // Bootstrap the abstraction for Use.
     Senpai.setProvider(web3.currentProvider);
 
