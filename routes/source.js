@@ -6,6 +6,7 @@ var upload = multer({dest:'uploads/'}); // multer 경로 설정, 파일이 업�
 var router = express.Router();
 
 
+
 // router.get('/', function(req,res){
     // 처음 index로 접속 했을시 나오는 부분
     // db에서 게시글 리스트 가져와서 출력
@@ -39,8 +40,16 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   var sort = req.query.sort;
   var keyword = req.query.keyword;
-  var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
-  res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: sources});
+  // alert(Source.find())
+
+  Source.find().sort({date:-1}).exec(function(err, searchContents){
+      if(err) throw err;
+      // res.render('board', {title: "Board", contents: searchContents});
+      console.log(searchContents);
+      res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: searchContents});
+
+  });
+  // var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
 });
 
 router.get('/info', function(req, res, next) {
@@ -53,10 +62,15 @@ router.get('/info', function(req, res, next) {
 
 router.get('/detail', function(req, res, next) {
   // alert(req.query.info)
-  // var sort = req.query.sort;
+  var id = req.query.id;
   // var keyword = req.query.keyword;
-  var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
-  res.render('source_detail', { title: 'source', keyword: keyword, sort: sort, source: source});
+  // var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
+  Source.find(id=id).exec(function(err, searchContents){
+      if(err) throw err;
+      // res.render('board', {title: "Board", contents: searchContents});
+      console.log(searchContents);
+      res.render('source_detail', { title: 'source', source: searchContents});
+  });
 });
 
 
@@ -90,6 +104,7 @@ router.post('/', upload.single('UploadFile'),function(req, res){
 
     var addNewTitle = req.body.addContentSubject;
     var addNewContent = req.body.addContents;
+    var addNewPrice = req.body.addContentPrice;
     var addNewWriter = '주기영';
     var addNewSourceType = req.body.addContentSourceType;
     var addNewClassNumber = req.body.addContentClassNumber;
@@ -100,7 +115,7 @@ router.post('/', upload.single('UploadFile'),function(req, res){
 
     // if(mode == 'add) {
     if (1==1) {
-      // addBoard(addNewTitle, addNewContent, addNewSourceType, addNewClassNumber, upFile);
+      addBoard(addNewTitle, addNewWriter, addNewContent, addNewSourceType, addNewClassNumber, addNewPrice, upFile);
 
       res.redirect('/source');
         // if (isSaved(upFile)) { // 파일이 제대로 업로드 되었는지 확인 후 디비에 저장시키게 됨
@@ -187,13 +202,15 @@ router.get('/view', function(req, res){
 module.exports = router;
 
 
-function addBoard(title, content, sourceType, classNumber, upFile){
+function addBoard(title, writer, content, sourceType, classNumber, price, upFile){
     var newContent = content.replace(/\r\n/gi, "\\r\\n");
     console.log('#1');
     var source = new Source;
     source.title = title;
+    source.writer = writer;
     source.contents = content;
     source.sourceType = sourceType;
+    source.price = price;
     source.classNumber = classNumber;
 
     source.save(function (err) {

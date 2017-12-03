@@ -10,4 +10,7 @@ $(document).ready(function() {
     $(location).attr('href', 'http://localhost:3001/source?keyword='+$('input.search_area_center').val())
   })
 
+  // $('a.post_title_btn').click( function() {
+  //   $('')
+  // })
 });

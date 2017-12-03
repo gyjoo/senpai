@@ -1,20 +1,24 @@
 <div class="post_article center">
  <div class="cont_post">
     h2
-      a(href=source[0])
-        div(class="post_title")= source[0]
+      //- <a href="/search?keyword=123&page=0" class="btn_num select" data-number="0">
+      <a href="/source_detail?id=#{source._id}">
+        div(class="post_title")= source.title
+      </a>
+      //- a(class="post_title_btn")
+        div(class="post_title")= source.title
     div(class="cont_img")
       a(href=source[0])
         img(src="" width="100%" height="100%" alt="")
     a(class="post_txt_wrap", href=source[0])
-      div(class="post_txt")= source[1]
+      div(class="post_txt")= source.contents  
     <dl>
      <dt><i class="xe-time-o"><span class="blind">등록일</span></i></dt>
      <dd>2017.12.3</dd>
      <dt><span class="blind">|</span></dt>
      <dd><span class="line_bar">|</span></dd>
      <dt><i class="xe-eye"><span class="blind">코멘트</span></i></dt>
-     <dd>0</dd>
+     span(class="source-id")= source._id
     </dl>
  </div>
 </div>
