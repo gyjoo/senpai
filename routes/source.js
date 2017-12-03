@@ -6,40 +6,41 @@ var upload = multer({dest:'uploads/'}); // multer 경로 설정, 파일이 업�
 var router = express.Router();
 
 
-/*
-router.get('/', function(req,res){
+// router.get('/', function(req,res){
     // 처음 index로 접속 했을시 나오는 부분
     // db에서 게시글 리스트 가져와서 출력
     // pagination 추가 -> 11/17
     // page는 1-5까지 보여줌 -> db에서 총 갯수 잡아와서 10으로 나눠서 올림해야함
     // 한페이지에 10개의 게시글: limit: 10, skip: (page-1)*10 이면 될 듯
     // page number는 param으로 받아오기 가장 처음엔 param 없으니까 그땐 자동 1로 설정
+    //
+    // var page = req.param('page');
+    // if(page == null) {page = 1;}
+    //
+    // var skipSize = (page-1)*10;
+    // var limitSize = 10;
+    // var pageNum = 1;
 
-    var page = req.param('page');
-    if(page == null) {page = 1;}
 
-    var skipSize = (page-1)*10;
-    var limitSize = 10;
-    var pageNum = 1;
+    // BoardContents.count({deleted:false},function(err, totalCount){
+    //    // db에서 날짜 순으로 데이터들을 가져옴
+    //     if(err) throw err;
+    //
+    //     pageNum = Math.ceil(totalCount/limitSize);
+    //     BoardContents.find({deleted:false}).sort({date:-1}).skip(skipSize).limit(limitSize).exec(function(err, pageContents) {
+    //         if(err) throw err;
+    //         res.render('board', {title: "Board", contents: pageContents, pagination: pageNum, searchWord: ''});
+    //     });
+    // });
+    // var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
+// });
 
-
-    BoardContents.count({deleted:false},function(err, totalCount){
-       // db에서 날짜 순으로 데이터들을 가져옴
-        if(err) throw err;
-
-        pageNum = Math.ceil(totalCount/limitSize);
-        BoardContents.find({deleted:false}).sort({date:-1}).skip(skipSize).limit(limitSize).exec(function(err, pageContents) {
-            if(err) throw err;
-            res.render('board', {title: "Board", contents: pageContents, pagination: pageNum, searchWord: ''});
-        });
-    });
-});
-*/
 
 router.get('/', function(req, res, next) {
   var sort = req.query.sort;
   var keyword = req.query.keyword;
-  res.render('source', { title: 'source', keyword: keyword, sort: sort});
+  var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
+  res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: sources});
 });
 
 /*
@@ -68,22 +69,11 @@ router.get('/search', function(req, res){
 */
 
 router.post('/', upload.single('UploadFile'),function(req, res){
-    //field name은 form의 input file의 name과 같아야함
-    // 글 작성하고 submit하게 되면 저장이 되는 부분
-    // 글 수정하고 submit하면 수정된 결과가 저장되는 부분
 
-    console.log('HAHAHA3');
-    console.log(req.body);
-    console.log(req.file);
-    // console.log(req.files);
-    // console.log(req.body['UploadFile']);
-    // console.log('HAHAHA2');
-
-    // var mode = req.params('mode');
 
     var addNewTitle = req.body.addContentSubject;
     var addNewContent = req.body.addContents;
-    // var addNewWriter = req.body.addContentWriter;
+    var addNewWriter = '주기영';
     var addNewSourceType = req.body.addContentSourceType;
     var addNewClassNumber = req.body.addContentClassNumber;
     var upFile = req.file; // 업로드 된 파일을 받아옴
@@ -195,10 +185,6 @@ function addBoard(title, content, sourceType, classNumber, upFile){
             if (err) throw err;
 
             if (upFile != null) {
-                // var renaming = renameUploadFile(newBoardId.id, upFile);
-                // console.log('renaming');
-                // console.log(renaming);
-                // for (var i = 0; i < upFile.length; i++) {
                 var newFileName = getDirname(1)+"uploads/"+getFileDate(new Date())+'_'+upFile.originalname
                 console.log(newFileName);
                 fs.rename(upFile.path, newFileName, function (err) {
