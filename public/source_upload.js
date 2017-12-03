@@ -17,7 +17,8 @@ function submitContents(option) {
             return;
         } else {
             alert("확인");
-            App.createProduct("서성욱", "호이", 1, 1, 1, 1, "CSED331", "한글");
+            //- title, file_url, price,created_at, source_type, department, course_id,description
+            // App.createProduct(title, "호이", 1, 1, 1, 1, "CSED331", "한글");
             $('#writeAction').submit();
         }
     }

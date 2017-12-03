@@ -19,14 +19,18 @@ block content
               <input type="text" class="inputSubject" id="addContentSubject" name="addContentSubject" placeholder="Title">
               <div class="writeDetail">
                 <input type="text" class="inputSourceType" id="addContentSourceType" name="addContentSourceType" placeholder="Source Type (ex: Exam)">
+                <input type="text" class="inputPrice" id="addContentPrice" name="addContentPrice" placeholder="Price(won) (ex: 2000)">
                 <input type="text" class="inputClassNumber" id="addContentClassNumber" name="addContentClassNumber" placeholder="Class Number (ex: CSED 101)">
+                <input type="text" class="inputDepartment" id="addContentDepartment" name="addContentDepartment" placeholder="Department (ex: IME)">
               </div>
               <textarea class="textContents" id="addContents" name="addContents" rows="20" cols="80" placeholder="Detailed Explanation"></textarea>
               <input type="file" class="inputFile" id="UploadFile" name="UploadFile">
           </form>
           <div id = "new" class="addBtngroup">
             //- <div><a onclick="cancelWriteForm('cancel');">CANCEL</a></div>
-            <div><a onclick="submitContents('add');">SUBMIT</a></div>
+            //- title, file_url, price,created_at, source_type, department, course_id,description
+            div
+              a(id='send', onclick='App.start(); App.createProduct($("input.inputSubject").val(), "temp", $("input.inputPrice").val(), 1, $("input.inputSourceType").val(), $("input.inputDepartment").val(), $("input.inputClassNumber").val(), $("textarea.textContents").val()); submitContents("add");') SUBMIT
           </div>
         </div>
         
@@ -53,3 +57,4 @@ block content
   
 block js
   <script type="text/javascript" src="source_upload.js"></script>
+  <script type="text/javascript" src="senpai_hazimae.js"></script>
