@@ -51,6 +51,14 @@ router.get('/info', function(req, res, next) {
   res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: sources});
 });
 
+router.get('/detail', function(req, res, next) {
+  // alert(req.query.info)
+  // var sort = req.query.sort;
+  // var keyword = req.query.keyword;
+  var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
+  res.render('source_detail', { title: 'source', keyword: keyword, sort: sort, source: source});
+});
+
 
 /*
 router.get('/search', function(req, res){
