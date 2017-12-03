@@ -39,41 +39,31 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   var sort = req.query.sort;
-  var keyword = req.query.keyword;
-  // alert(req.query);
-
+  var keyword = req.query.keyword || '';
   var searchCondition = {$regex:keyword};
+
 
   Source.find({$or:[{title:searchCondition},{contents:searchCondition},{writer:searchCondition}]}).sort({date:-1}).exec(function(err, searchContents){
       if(err) throw err;
       // res.render('board', {title: "Board", contents: searchContents});
       console.log(searchContents);
       res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: searchContents});
-
   });
   // var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
 });
 
-router.get('/info', function(req, res, next) {
-  alert(req.query.info)
-  var sort = req.query.sort;
-  var keyword = req.query.keyword;
-  var sources = [['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다'], ['[컴공] CSED 451 - 컴퓨터비전 개론 / 2016 참고자료', '컴퓨터 비전과 관련된 수업 교재와 pdf 모음입니다.']]
-  res.render('source', { title: 'source', keyword: keyword, sort: sort, sources: sources});
-});
-
-router.get('/detail', function(req, res, next) {
+// router.get('/detail', function(req, res, next) {
   // alert(req.query.info)
-  var id = req.query.id;
+  // var id = req.query.id;
   // var keyword = req.query.keyword;
   // var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
-  Source.find(id=id).exec(function(err, searchContents){
-      if(err) throw err;
+  // Source.find(_id=id).exec(function(err, searchContents){
+      // if(err) throw err;
       // res.render('board', {title: "Board", contents: searchContents});
-      console.log(searchContents);
-      res.render('source_detail', { title: 'source', source: searchContents});
-  });
-});
+      // console.log(searchContents);
+      // res.render('source_detail', { title: 'source', source: searchContents});
+  // });
+// });
 
 
 /*
