@@ -40,6 +40,7 @@
 
  var multer = require('multer'); // express에 multer모듈 적용 (for 파일업로드)
  var upload = multer({ dest: 'uploads/' })
+ var Source = require('./model/sourceSchema'); //db를 사용하기 위한 변수
 
 // process.env.PWD = process.cwd()
 // app.use(express.static(process.env.PWD + '/public'));
@@ -134,16 +135,18 @@ app.get('/source_upload', function(req, res, next) {
 });
 
 app.get('/source_detail', function(req, res, next) {
-  // var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
+  // alert(req)
+  console.log(req)
+  var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
   // res.render('source_detail', { title: 'source_detail', source: source });
   var id = req.query.id;
   // var keyword = req.query.keyword;
   // var source = ['[산경] IMEN 231 - 최적화개론 / 2015 중간고사', '2015년 1학기와 2학기 중간고사 시험지 모음입니다. 굉장히 유용한 자료입니다']
-  Source.find(id=id).exec(function(err, searchContents){
-      if(err) throw err;
-      // res.render('board', {title: "Board", contents: searchContents});
-      console.log(searchContents);
-      res.render('source_detail', { title: 'source', source: searchContents});
+  Source.find({_id: id}).exec(function(err, searchContents){
+      // if(err) throw err;
+      // res.render('source', {title: "Board", contents: searchContents});
+      // console.log(searchContents);
+      res.render('source_detail', {title: 'source', source: searchContents[0]});
   });
 });
 

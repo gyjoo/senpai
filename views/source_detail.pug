@@ -5,7 +5,7 @@ block content
         <div class="contents detail_view">
            <div class="post_article">
               <div class="cont_post">
-                 <h1 class="posting_tit">#{source[0]}</h1>
+                 <h1 class="posting_tit">#{source.title}</h1>
                  <dl class="post_info">
                     <dt><i class="xe-time-o"><span class="blind">등록일</span></i></dt>
                     <dd>2017.10.23</dd>
@@ -15,7 +15,7 @@ block content
                     <dd>1</dd>
                  </dl>
                  <div class="con_view">
-                 #{source[1]}
+                 #{source.contents}
                  </div>
                   a(id='purchase', onclick='App.purchaseProduct("0")', download="imen127", href="/imen127.jpeg", class="buttonDownload") Download
               </div>
