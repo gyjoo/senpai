@@ -107,6 +107,7 @@ window.App = {
       console.log(e);
       self.setStatus("Error sending coin; see log.");
     });
+
   },
 
   // instance.getProductsTotal.call().then(function(value){
